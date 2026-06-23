@@ -3,479 +3,372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GALEON TAVERN — El puerto donde empiezan las mejores historias</title>
-<meta name="description" content="Galeon Tavern — Taberna con tematica nautica en Sevilla. Copas, karaoke, salsa, bachata y el mejor ambiente del Aljarafe.">
+<title>Venta El Capricho | Restaurante y Celebraciones en Mairena del Aljarafe</title>
+<meta name="description" content="Restaurante familiar en Mairena del Aljarafe especializado en celebraciones, comuniones, bautizos, eventos y cocina tradicional andaluza.">
+<meta name="keywords" content="restaurante mairena del aljarafe, comuniones sevilla, celebraciones aljarafe, restaurante familiar sevilla, bautizos sevilla, eventos mairena, venta el capricho">
+<meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0B0F14;
-  --bg-alt:#11161D;
-  --bg-alt-2:#161C25;
-  --ink:#EDEFF2;
-  --muted:#8C96A3;
-  --accent:#3FA39C;
-  --accent-soft:rgba(63,163,156,0.12);
-  --line:rgba(255,255,255,0.08);
-  --line-strong:rgba(255,255,255,0.14);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.7;font-size:1rem;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-.container{max-width:1180px;margin:0 auto;padding:0 24px}
-.section{padding:110px 0;position:relative;overflow:hidden}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:0.78rem;text-transform:uppercase;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:18px}
-.section-title{font-family:'Playfair Display',serif;font-weight:600;font-size:2.6rem;text-align:center;color:var(--ink);margin-bottom:14px;letter-spacing:0.3px}
-.section-subtitle{text-align:center;color:var(--muted);font-size:1.05rem;margin-bottom:56px;max-width:560px;margin-left:auto;margin-right:auto}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 32px;border-radius:3px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:600;transition:all 0.3s ease;cursor:pointer;border:1px solid transparent;letter-spacing:0.5px;position:relative;overflow:hidden}
-.btn-primary{background:var(--accent);color:#06201E}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(63,163,156,0.25);background:#49B5AD}
-.btn-primary:active{transform:translateY(0)}
-.btn-outline{background:transparent;border-color:var(--line-strong);color:var(--ink)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.btn-outline:active{transform:translateY(0)}
-.btn-dark{background:rgba(255,255,255,0.04);border-color:var(--line);color:var(--muted)}
-.btn-dark:hover{border-color:var(--line-strong);color:var(--ink);transform:translateY(-2px)}
-.btn-dark:active{transform:translateY(0)}
-.btn-ico{display:inline-block;width:16px;height:16px;flex-shrink:0}
-.ico{width:20px;height:20px;fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.ico-lg{width:30px;height:30px;stroke-width:1.3}
-.ico-sm{width:14px;height:14px;stroke-width:2}
-nav{position:fixed;top:0;width:100%;z-index:1000;padding:22px 0;transition:all 0.4s ease}
-nav.scrolled{background:rgba(11,15,20,0.92);backdrop-filter:blur(16px);padding:14px 0;border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:0 24px}
-.nav-logo{font-family:'Playfair Display',serif;font-weight:600;font-size:1.3rem;color:var(--ink);letter-spacing:1.5px;display:flex;align-items:center;gap:10px}
-.nav-logo span{color:var(--accent)}
-.nav-links{display:flex;gap:34px;list-style:none;font-size:0.85rem;font-weight:500}
-.nav-links a{color:var(--muted);transition:color 0.3s;position:relative;padding:4px 0}
-.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s}
-.nav-links a:hover{color:var(--ink)}
-.nav-links a:hover::after{width:100%}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.nav-toggle span{width:24px;height:2px;background:var(--ink);transition:all 0.3s;display:block}
- 
-/* ===== HERO ===== */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://res.cloudinary.com/dmuxgamms/image/upload/v1782151794/unnamed_9_qgwlrh.webp') center/cover no-repeat;filter:brightness(0.34) saturate(0.9);transform:scale(1.04);animation:heroZoom 28s ease-in-out infinite alternate}
-@keyframes heroZoom{from{transform:scale(1.04)}to{transform:scale(1.16)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,20,0.55) 0%,rgba(11,15,20,0.72) 55%,rgba(11,15,20,0.95) 100%);z-index:1}
-.hero-content{position:relative;z-index:3;text-align:center;padding:0 24px;max-width:880px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:0.78rem;text-transform:uppercase;letter-spacing:3px;color:var(--accent);border:1px solid var(--line-strong);padding:9px 24px;margin-bottom:32px;font-weight:600;border-radius:30px}
-.hero-title{font-family:'Playfair Display',serif;font-weight:600;font-size:4.2rem;color:var(--ink);letter-spacing:0.5px;line-height:1.08;margin-bottom:22px}
-.hero-title em{font-style:italic;color:var(--accent);font-weight:500}
-.hero-subtitle{font-size:1.1rem;color:var(--muted);max-width:620px;margin:0 auto 42px;line-height:1.8}
-.hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:3px;cursor:pointer;animation:float 2.5s ease-in-out infinite;font-weight:600}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
-.hero-scroll-line{width:1px;height:36px;background:linear-gradient(180deg,var(--accent),transparent)}
- 
-/* ===== SHIP THAT DESCENDS WITH SCROLL ===== */
-.scroll-route{position:fixed;top:0;right:18px;height:100vh;width:48px;z-index:600;pointer-events:none;display:none}
-.scroll-route::before{content:'';position:absolute;left:50%;top:90px;bottom:90px;width:1px;transform:translateX(-50%);background:repeating-linear-gradient(180deg,var(--line-strong) 0 5px,transparent 5px 13px)}
-.scroll-route .route-end{position:absolute;left:50%;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.scroll-route .route-start{top:84px}
-.scroll-route .route-finish{bottom:84px}
-.route-ship{position:absolute;left:50%;top:90px;width:26px;transform:translate(-50%,0);transition:top 0.08s linear;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.4))}
-.route-ship svg{width:100%;display:block}
-@media(min-width:1040px){.scroll-route{display:block}}
-
-/* ===== LARGE INTERACTIVE SHIP ===== */
-.large-ship-wrap{position:fixed;left:12px;top:100px;width:100px;height:180px;z-index:500;pointer-events:none;display:none;opacity:0.25}
-@media(min-width:1200px){.large-ship-wrap{display:block;width:130px}}
-.large-ship{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100%;transition:bottom 0.08s linear;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 8px 20px rgba(63,163,156,0.15))}
-.large-ship svg{width:100%;height:auto;display:block}
-.large-ship .sail-glow{animation:sailPulse 3s ease-in-out infinite}
-@keyframes sailPulse{0%,100%{opacity:0.85}50%{opacity:1}}
-.large-ship-wrap .wake{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:80%;height:20px;overflow:hidden;opacity:0.15}
-.large-ship-wrap .wake::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:2px;height:100%;background:linear-gradient(180deg,var(--accent),transparent);animation:wakeAnim 1.5s ease-out infinite}
-@keyframes wakeAnim{0%{transform:translateX(-50%) scaleY(1);opacity:1}100%{transform:translateX(-50%) scaleY(2);opacity:0}}
-.large-ship-wrap .sparkle{position:absolute;width:3px;height:3px;background:var(--accent);border-radius:50%;animation:sparkleFloat 3s ease-in-out infinite}
-.large-ship-wrap .sparkle:nth-child(2){left:15%;top:30%;animation-delay:0.8s}
-.large-ship-wrap .sparkle:nth-child(3){right:10%;top:50%;animation-delay:1.6s}
-.large-ship-wrap .sparkle:nth-child(4){left:30%;top:10%;animation-delay:2.4s}
-@keyframes sparkleFloat{0%,100%{opacity:0;transform:translateY(0) scale(0)}50%{opacity:1;transform:translateY(-8px) scale(1)}}
- 
-.section-header{text-align:center;margin-bottom:56px}
-.section-header svg{margin-bottom:14px;opacity:0.7}
- 
-/* ===== ABOUT ===== */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.about-text h2{font-family:'Playfair Display',serif;font-weight:600;font-size:2.3rem;margin-bottom:22px;line-height:1.25;color:var(--ink)}
-.about-text p{color:var(--muted);margin-bottom:16px;font-size:1.02rem;line-height:1.85}
-.about-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;color:var(--ink);padding:24px 32px;border-left:2px solid var(--accent);margin:26px 0;background:var(--accent-soft)}
-.about-image{position:relative;border-radius:4px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,0.45)}
-.about-image img{width:100%;height:480px;object-fit:cover;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
-.about-image:hover img{transform:scale(1.05)}
- 
-/* ===== FEATURES ===== */
-.features-wrap{background:var(--bg-alt);padding:70px 0;position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line)}
-.feature-card{background:var(--bg-alt);padding:40px 20px;text-align:center;transition:all 0.3s ease}
-.feature-card:hover{background:var(--bg-alt-2)}
-.feature-card svg{width:30px;height:30px;margin-bottom:16px;stroke:var(--accent);fill:none;stroke-width:1.4;transition:transform 0.3s}
-.feature-card:hover svg{transform:translateY(-3px)}
-.feature-card h3{font-family:'Inter',sans-serif;color:var(--ink);font-size:0.92rem;letter-spacing:0.3px;font-weight:600}
- 
-/* ===== MENU ===== */
-.menu-categories{display:flex;justify-content:center;gap:8px;margin-bottom:48px;flex-wrap:wrap}
-.menu-cat{font-family:'Inter',sans-serif;font-weight:600;padding:10px 26px;background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;transition:all 0.3s;font-size:0.85rem;letter-spacing:0.3px;border-radius:30px}
-.menu-cat.active,.menu-cat:hover{background:var(--accent);color:#06201E;border-color:var(--accent)}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.menu-item{background:var(--bg);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;transition:all 0.3s}
-.menu-item:hover{background:var(--bg-alt)}
-.menu-item-info h4{font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:2px}
-.menu-item-info p{font-size:0.88rem;color:var(--muted)}
-.menu-item-price{font-family:'Playfair Display',serif;font-weight:600;font-size:1.15rem;color:var(--accent);white-space:nowrap;margin-left:20px}
- 
-/* ===== GALLERY ===== */
-.gallery-section{background:var(--bg-alt)}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.gallery-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3;border-radius:3px}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
-.gallery-item:hover img{transform:scale(1.08)}
-.gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(63,163,156,0.18),rgba(6,12,16,0.7));opacity:0;transition:opacity 0.35s;display:flex;align-items:center;justify-content:center}
-.gallery-item:hover .gallery-item-overlay{opacity:1}
-.gallery-item-overlay svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.5;transform:scale(0.5);transition:transform 0.4s}
-.gallery-item:hover .gallery-item-overlay svg{transform:scale(1)}
-.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(6,9,12,0.96);display:none;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
-.lightbox.active{display:flex}
-.lightbox-img{max-width:90vw;max-height:90vh;border-radius:3px;box-shadow:0 30px 80px rgba(0,0,0,0.7)}
-.lightbox-close{position:absolute;top:28px;right:36px;cursor:pointer;background:none;border:none;z-index:2001;display:flex}
-.lightbox-close svg{width:22px;height:22px;stroke:var(--ink);stroke-width:2;fill:none}
-.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);cursor:pointer;background:none;border:none;z-index:2001;padding:16px}
-.lightbox-nav svg{width:22px;height:22px;stroke:var(--ink);stroke-width:2;fill:none}
-.lightbox-nav:hover svg{stroke:var(--accent)}
-.lightbox-prev{left:12px}.lightbox-next{right:12px}
-.lightbox-counter{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:0.85rem;letter-spacing:1px}
- 
-/* ===== REVIEWS ===== */
-.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-.review-card{background:var(--bg-alt);border:1px solid var(--line);padding:30px;border-radius:4px;transition:all 0.3s}
-.review-card:hover{border-color:var(--line-strong);transform:translateY(-3px)}
-.review-stars{color:var(--accent);font-size:0.95rem;margin-bottom:12px;letter-spacing:2px}
-.review-text{color:var(--muted);font-style:italic;line-height:1.8;margin-bottom:14px;font-size:0.96rem}
-.review-author{font-family:'Inter',sans-serif;color:var(--ink);font-size:0.9rem;font-weight:600}
-.review-badge{text-align:center;margin-bottom:50px}
-.review-badge-inner{display:inline-flex;align-items:center;gap:14px;background:var(--bg-alt);border:1px solid var(--line);padding:14px 30px;border-radius:30px}
-.review-badge-stars{font-size:1.1rem;color:var(--accent)}
-.review-badge-text{font-size:0.95rem;color:var(--ink)}
-.review-badge-text strong{color:var(--accent);font-weight:700}
- 
-/* ===== RESERVAS ===== */
-.reservas{background:var(--bg-alt)}
-.reservas-form{max-width:600px;margin:0 auto;background:var(--bg);border:1px solid var(--line);padding:46px;border-radius:6px}
-.form-group{margin-bottom:20px}
-.form-group label{display:flex;align-items:center;gap:8px;font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:600}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;background:var(--bg-alt);border:1px solid var(--line);color:var(--ink);font-size:0.95rem;transition:all 0.3s;font-family:'Inter',sans-serif;border-radius:4px}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent)}
-.form-group textarea{resize:vertical;min-height:100px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.form-submit{width:100%;padding:16px;background:var(--accent);color:#06201E;border:none;font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.3s;letter-spacing:0.5px;border-radius:4px}
-.form-submit:hover{background:#49B5AD;transform:translateY(-2px)}
-.form-submit:active{transform:translateY(0)}
-.form-message{margin-top:18px;text-align:center;font-size:0.92rem;display:none}
-.form-message.success{display:block;color:var(--accent)}
-.form-message.error{display:block;color:#E08585}
- 
-/* ===== LOCATION ===== */
-.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.location-info h3{font-family:'Playfair Display',serif;font-weight:600;font-size:1.7rem;color:var(--ink);margin-bottom:22px;display:flex;align-items:center;gap:12px}
-.location-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;color:var(--muted)}
-.location-detail svg{width:16px;height:16px;flex-shrink:0;margin-top:4px}
-.location-buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-.location-map{width:100%;height:400px;overflow:hidden;border:1px solid var(--line);border-radius:6px}
-.location-map iframe{width:100%;height:100%;border:0;filter:grayscale(0.3) contrast(1.05)}
- 
-/* ===== FOOTER ===== */
-footer{background:var(--bg);border-top:1px solid var(--line);padding:70px 0 28px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:46px}
-.footer-brand .nav-logo{font-size:1.5rem;margin-bottom:14px}
-.footer-brand p{color:var(--muted);font-size:0.95rem;max-width:300px;line-height:1.8}
-.footer-col h4{font-family:'Inter',sans-serif;color:var(--ink);font-size:0.85rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;font-weight:700}
-.footer-col ul{list-style:none}
-.footer-col ul li{margin-bottom:10px}
-.footer-col ul li a{color:var(--muted);font-size:0.92rem;transition:color 0.3s}
-.footer-col ul li a:hover{color:var(--accent)}
-.footer-social{display:flex;gap:12px;margin-top:22px}
-.footer-social a{width:38px;height:38px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all 0.3s}
-.footer-social a svg{width:16px;height:16px;stroke:var(--muted);fill:none;transition:all 0.3s}
-.footer-social a:hover{border-color:var(--accent)}
-.footer-social a:hover svg{stroke:var(--accent)}
-.footer-bottom{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-bottom p{color:var(--muted);font-size:0.85rem}
- 
-.fade-in{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){.route-ship{transition:none}.hero-bg{animation:none}}
-@media(max-width:968px){
-.about-grid{grid-template-columns:1fr;gap:36px}
-.location-grid{grid-template-columns:1fr;gap:36px}
-.gallery-grid{grid-template-columns:repeat(2,1fr)}
-.footer-grid{grid-template-columns:1fr 1fr;gap:36px}
-}
-@media(max-width:768px){
-.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(11,15,20,0.97);backdrop-filter:blur(16px);flex-direction:column;padding:22px;gap:18px;border-bottom:1px solid var(--line)}
-.nav-links.open{display:flex}
-.nav-toggle{display:flex}
-.hero-title{font-size:2.6rem}
-.section-title{font-size:2rem}
-.gallery-grid{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr;gap:28px}
-.form-row{grid-template-columns:1fr}
-.menu-grid{grid-template-columns:1fr}
-.reviews-grid{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-.hero-buttons{flex-direction:column;align-items:center}
-.section{padding:64px 0}
-.features-grid{grid-template-columns:repeat(2,1fr)}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-  <symbol id="anchor" viewBox="0 0 24 24"><path d="M12 4v15M12 19l-4-4M12 19l4-4M4 10h16"/><circle cx="12" cy="5.5" r="1.5"/><path d="M12 4V2"/></symbol>
-  <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><polygon points="12,4 14,12 12,20 10,12"/><polygon points="7,12 12,10 17,12 12,14"/><circle cx="12" cy="12" r="1"/></symbol>
-  <symbol id="ship" viewBox="0 0 24 24"><polygon points="6,16 18,16 21,20 3,20"/><line x1="12" y1="8" x2="12" y2="16"/><polygon points="12,8 17,14 12,14"/><line x1="6" y1="16" x2="6" y2="19"/><line x1="18" y1="16" x2="18" y2="19"/><path d="M3 20c0 2 3 3 9 3s9-1 9-3"/></symbol>
-  <symbol id="wave" viewBox="0 0 24 24"><path d="M2 16c2 0 3-2 5-2s3 2 5 2 3-2 5-2 3 2 5 2M2 11c2 0 3-2 5-2s3 2 5 2 3-2 5-2 3 2 5 2"/></symbol>
-  <symbol id="barrel" viewBox="0 0 24 24"><rect x="6" y="5" width="12" height="14" rx="2"/><line x1="6" y1="9" x2="18" y2="9"/><line x1="6" y1="15" x2="18" y2="15"/><line x1="12" y1="5" x2="12" y2="19"/></symbol>
-  <symbol id="music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="9" y1="12" x2="21" y2="10"/></symbol>
-  <symbol id="glass" viewBox="0 0 24 24"><path d="M6 3h12l-1.5 16H7.5L6 3z"/><line x1="9" y1="3" x2="9" y2="7"/><line x1="12" y1="3" x2="12" y2="7"/><line x1="15" y1="3" x2="15" y2="7"/></symbol>
-  <symbol id="cheers" viewBox="0 0 24 24"><path d="M6 8l3 13h6l3-13"/><line x1="4" y1="8" x2="20" y2="8"/></symbol>
-  <symbol id="map" viewBox="0 0 24 24"><path d="M3 5v14l6-3 6 3 6-3V5l-6 3-6-3-6 3z"/><line x1="9" y1="2" x2="9" y2="16"/><line x1="15" y1="5" x2="15" y2="19"/></symbol>
-  <symbol id="loc" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
-  <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></symbol>
-  <symbol id="xmark" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
-  <symbol id="ch-left" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></symbol>
-  <symbol id="ch-right" viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></symbol>
-  <symbol id="ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></symbol>
-  <symbol id="fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
-  <symbol id="tt" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-1a3 3 0 0 0-3 3v2a6 6 0 0 0 6 6h0a6 6 0 0 0 6-6v-2a3 3 0 0 0-3-3z"/><line x1="10" y1="11" x2="10" y2="14"/><line x1="14" y1="11" x2="14" y2="14"/></symbol>
-  <symbol id="galleon" viewBox="0 0 200 180">
-    <path d="M20 110 L180 110 L170 150 L30 150 Z" fill="#3D3D3D" stroke="#2A2A2A" stroke-width="1.5"/>
-    <rect x="30" y="95" width="140" height="18" rx="2" fill="#4A3728" stroke="#2A2A2A" stroke-width="1"/>
-    <line x1="60" y1="95" x2="60" y2="30" stroke="#5C4A3A" stroke-width="2.5"/>
-    <line x1="100" y1="95" x2="100" y2="20" stroke="#5C4A3A" stroke-width="3"/>
-    <line x1="140" y1="95" x2="140" y2="30" stroke="#5C4A3A" stroke-width="2.5"/>
-    <line x1="44" y1="30" x2="60" y2="30" stroke="#5C4A3A" stroke-width="1.5"/>
-    <line x1="60" y1="30" x2="100" y2="20" stroke="#5C4A3A" stroke-width="1.5"/>
-    <line x1="100" y1="20" x2="140" y2="30" stroke="#5C4A3A" stroke-width="1.5"/>
-    <line x1="140" y1="30" x2="156" y2="30" stroke="#5C4A3A" stroke-width="1.5"/>
-    <path d="M62 30 L62 88 L96 88 Z" fill="#EDEFF2" stroke="#CCC" stroke-width="0.8" opacity="0.85"/>
-    <path d="M100 22 L100 88 L140 86 Z" fill="#EDEFF2" stroke="#CCC" stroke-width="0.8" opacity="0.85"/>
-    <path d="M62 30 L44 50 L62 50 Z" fill="#3FA39C" stroke="#CCC" stroke-width="0.5" opacity="0.7"/>
-    <path d="M100 22 L100 45 L130 45 Z" fill="#3FA39C" stroke="#CCC" stroke-width="0.5" opacity="0.7"/>
-    <path d="M100 48 L100 70 L135 70 Z" fill="#3FA39C" stroke="#CCC" stroke-width="0.5" opacity="0.7"/>
-    <path d="M62 52 L62 75 L85 75 Z" fill="#3FA39C" stroke="#CCC" stroke-width="0.5" opacity="0.7"/>
-    <circle cx="100" cy="14" r="5" fill="#3FA39C" stroke="#2A2A2A" stroke-width="1"/>
-    <path d="M97 11 L103 11 L100 17 Z" fill="#EDEFF2"/>
-    <line x1="54" y1="88" x2="146" y2="88" stroke="#5C4A3A" stroke-width="1.5"/>
-    <line x1="54" y1="92" x2="146" y2="92" stroke="#5C4A3A" stroke-width="1.5"/>
-    <line x1="54" y1="88" x2="30" y2="110" stroke="#5C4A3A" stroke-width="1.5"/>
-    <line x1="146" y1="88" x2="170" y2="110" stroke="#5C4A3A" stroke-width="1.5"/>
-    <circle cx="172" cy="112" r="3" fill="#D4AF37"/>
-    <circle cx="178" cy="120" r="2.5" fill="#D4AF37"/>
-    <circle cx="182" cy="129" r="2" fill="#D4AF37"/>
-    <circle cx="28" cy="112" r="3" fill="#D4AF37"/>
-    <circle cx="22" cy="120" r="2.5" fill="#D4AF37"/>
-    <circle cx="18" cy="129" r="2" fill="#D4AF37"/>
-    <path d="M98 88 L98 118 L130 105 Z" fill="#EDEFF2" opacity="0.4" stroke="none"/>
-  </symbol>
+
+<div id="loader" class="loader">
+<div class="loader-content">
+<div class="loader-icon">
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+<circle cx="24" cy="24" r="22" stroke="#A67C52" stroke-width="2" stroke-dasharray="140" stroke-dashoffset="140">
+<animate attributeName="stroke-dashoffset" from="140" to="0" dur="1.5s" fill="freeze"/>
+</circle>
+<text x="24" y="24" text-anchor="middle" dominant-baseline="central" font-family="Playfair Display" font-size="18" fill="#A67C52" opacity="0">VC
+<animate attributeName="opacity" from="0" to="1" dur="0.8s" begin="1s" fill="freeze"/>
+</text>
 </svg>
- 
-<div class="scroll-route" aria-hidden="true">
-  <span class="route-end route-start"></span>
-  <span class="route-end route-finish"></span>
-  <div class="route-ship" id="routeShip">
-    <svg viewBox="0 0 60 56" xmlns="http://www.w3.org/2000/svg">
-      <path d="M30 4 L30 32 L46 28 Z" fill="#EDEFF2"/>
-      <path d="M30 4 L30 32 L16 29 Z" fill="#3FA39C"/>
-      <line x1="30" y1="3" x2="30" y2="34" stroke="#0B0F14" stroke-width="1.4"/>
-      <path d="M7 36 Q30 27 53 36 L47 48 Q30 54 13 48 Z" fill="#0B0F14" stroke="#3FA39C" stroke-width="1"/>
-    </svg>
-  </div>
+</div>
+</div>
 </div>
 
-<div class="large-ship-wrap" aria-hidden="true">
-  <span class="sparkle"></span>
-  <span class="sparkle"></span>
-  <span class="sparkle"></span>
-  <div class="wake"></div>
-  <div class="large-ship" id="largeShip" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">
-    <svg viewBox="0 0 200 180"><use href="#galleon"/></svg>
-  </div>
+<nav class="navbar" id="navbar">
+<div class="nav-container">
+<a href="#" class="nav-logo">
+<span class="nav-logo-text">VENTA EL CAPRICHO</span>
+</a>
+<div class="nav-toggle" id="navToggle" aria-label="Menú">
+<span></span>
+<span></span>
+<span></span>
 </div>
- 
-<nav id="navbar">
-<div class="nav-inner">
-<a href="#" class="nav-logo"><svg class="ico" width="20" height="20"><use href="#ship"/></svg>GALEON <span>TAVERN</span></a>
-<ul class="nav-links" id="navLinks">
-<li><a href="#nosotros">Nosotros</a></li>
-<li><a href="#menu">Carta</a></li>
-<li><a href="#galeria">Galeria</a></li>
-<li><a href="#opiniones">Opiniones</a></li>
-<li><a href="#reservas">Reservas</a></li>
-<li><a href="#ubicacion">Ubicacion</a></li>
+<ul class="nav-menu" id="navMenu">
+<li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+<li><a href="#carta" class="nav-link">Carta</a></li>
+<li><a href="#galeria" class="nav-link">Galería</a></li>
+<li><a href="#eventos" class="nav-link">Eventos</a></li>
+<li><a href="#opiniones" class="nav-link">Opiniones</a></li>
+<li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+<li><a href="#reservas" class="nav-link nav-btn">Reservar</a></li>
 </ul>
-<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
 </nav>
- 
-<section class="hero" id="inicio">
-<div class="hero-bg"></div>
+
+<section class="hero" id="hero">
+<div class="hero-bg">
 <div class="hero-overlay"></div>
+<div class="hero-pattern"></div>
+</div>
 <div class="hero-content">
-<div class="hero-eyebrow"><svg class="ico" width="13" height="13"><use href="#compass"/></svg>Mairena del Aljarafe, Sevilla</div>
-<h1 class="hero-title">El puerto donde empiezan<br><em>las mejores historias</em></h1>
-<p class="hero-subtitle">Copas, karaoke, salsa y bachata en un ambiente nautico pensado para disfrutar de la noche con calma y buen gusto.</p>
-<div class="hero-buttons">
-<a href="#menu" class="btn btn-primary"><svg class="btn-ico"><use href="#glass"/></svg>Ver carta</a>
-<a href="#reservas" class="btn btn-outline"><svg class="btn-ico"><use href="#anchor"/></svg>Reservar mesa</a>
-<a href="tel:+34617049166" class="btn btn-dark"><svg class="btn-ico"><use href="#phone"/></svg>Llamar</a>
+<div class="hero-eyebrow" data-aos="fade-down">
+<span class="eyebrow-line"></span>
+<span>Restaurante · Eventos · Celebraciones</span>
+<span class="eyebrow-line"></span>
+</div>
+<h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">VENTA EL CAPRICHO</h1>
+<p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
+Un espacio único en Mairena del Aljarafe donde disfrutar de la mejor cocina, celebrar momentos inolvidables y compartir tiempo con quienes más importan.
+</p>
+<div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+<a href="#carta" class="btn btn-primary">Ver carta</a>
+<a href="#reservas" class="btn btn-secondary">Reservar mesa</a>
+<a href="tel:664424736" class="btn btn-outline">Llamar</a>
+<a href="https://maps.google.com/?q=Calle+Mandarina+2+41927+Mairena+del+Aljarafe+Sevilla" target="_blank" rel="noopener" class="btn btn-outline">Cómo llegar</a>
 </div>
 </div>
-<div class="hero-scroll" onclick="document.getElementById('nosotros').scrollIntoView({behavior:'smooth'})">
-<span>Descubrir</span>
-<div class="hero-scroll-line"></div>
+<div class="hero-scroll" data-aos="fade-up" data-aos-delay="1000">
+<div class="scroll-indicator">
+<div class="scroll-mouse">
+<div class="scroll-dot"></div>
 </div>
-</section>
- 
-<section class="section" id="nosotros">
-<div class="container">
-<div class="about-grid">
-<div class="about-text fade-in">
-<div class="eyebrow"><svg class="ico ico-sm"><use href="#compass"/></svg>Galeon Tavern</div>
-<h2>Mas que un bar, un punto de encuentro.</h2>
-<p>En Galeon Tavern cada visita se convierte en una historia.</p>
-<p>Ubicados en el corazon del Poligono PISA, hemos creado un espacio con identidad propia, donde las copas, la musica, el karaoke y el baile conviven en un ambiente cuidado y nautico.</p>
-<p>Nuestro objetivo es que cada cliente encuentre aqui su lugar favorito para desconectar, celebrar y disfrutar de una buena noche.</p>
-<div class="about-quote">No servimos solo copas. Creamos recuerdos.</div>
-</div>
-<div class="about-image fade-in">
-<img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782151789/unnamed_13_kctplq.webp" alt="Galeon Tavern interior" loading="lazy">
-</div>
+<span>Descubrir el restaurante</span>
 </div>
 </div>
 </section>
- 
-<div class="features-wrap">
+
+<section class="section nosotros" id="nosotros">
 <div class="container">
-<div class="features-grid fade-in">
-<div class="feature-card"><svg><use href="#glass"/></svg><h3>Copas Premium</h3></div>
-<div class="feature-card"><svg><use href="#barrel"/></svg><h3>Cervezas Bien Tiradas</h3></div>
-<div class="feature-card"><svg><use href="#music"/></svg><h3>Willy's Karaoke</h3></div>
-<div class="feature-card"><svg><use href="#wave"/></svg><h3>Clases de Salsa y Bachata</h3></div>
-<div class="feature-card"><svg><use href="#ship"/></svg><h3>Eventos y Musica en Directo</h3></div>
+<div class="nosotros-grid">
+<div class="nosotros-images" data-aos="fade-right">
+<div class="img-frame img-frame-1">
+<div class="img-placeholder" style="background: linear-gradient(135deg, #D6C3A5 0%, #A67C52 100%);">
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+</div>
+</div>
+<div class="img-frame img-frame-2">
+<div class="img-placeholder" style="background: linear-gradient(135deg, #C76B4F 0%, #A67C52 100%);">
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
 </div>
 </div>
 </div>
- 
-<section class="section" id="menu">
-<div class="container">
-<div class="section-header fade-in">
-<svg class="ico ico-lg" width="28" height="28"><use href="#barrel"/></svg>
-<h2 class="section-title">Nuestra Carta</h2>
-<p class="section-subtitle">Una seleccion de bebidas y snacks para acompanar la noche</p>
+<div class="nosotros-text" data-aos="fade-left">
+<span class="section-tag">Sobre nosotros</span>
+<h2 class="section-title">Tradición, familia y buena gastronomía.</h2>
+<p class="section-text">
+Venta El Capricho es un restaurante pensado para disfrutar sin prisas.
+</p>
+<p class="section-text">
+Contamos con amplios espacios interiores, terraza exterior y zonas ideales para reuniones familiares, celebraciones y comidas especiales.
+</p>
+<p class="section-text">
+Nuestro compromiso es ofrecer cocina de calidad, atención cercana y un entorno donde cada visita se convierta en un recuerdo.
+</p>
+<div class="nosotros-cita">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1v3z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+<blockquote>"No organizamos eventos. Creamos recuerdos."</blockquote>
 </div>
-<div class="menu-categories fade-in" id="menuCategories">
-<button class="menu-cat active" data-cat="cervezas">Cervezas</button>
-<button class="menu-cat" data-cat="copas">Copas</button>
-<button class="menu-cat" data-cat="cocteles">Cocteles</button>
-<button class="menu-cat" data-cat="refrescos">Refrescos</button>
-<button class="menu-cat" data-cat="snacks">Snacks</button>
-</div>
-<div class="menu-grid" id="menuGrid"></div>
-</div>
-</section>
- 
-<section class="section gallery-section" id="galeria">
-<div class="container">
-<div class="section-header fade-in">
-<svg class="ico ico-lg" width="28" height="28"><use href="#compass"/></svg>
-<h2 class="section-title">Galeria</h2>
-<p class="section-subtitle">La experiencia Galeon Tavern a traves de nuestras imagenes</p>
-</div>
-<div class="gallery-grid fade-in" id="galleryGrid"></div>
-</div>
-</section>
-<div class="lightbox" id="lightbox">
-<button class="lightbox-close" id="lightboxClose"><svg><use href="#xmark"/></svg></button>
-<button class="lightbox-nav lightbox-prev" id="lightboxPrev"><svg><use href="#ch-left"/></svg></button>
-<img class="lightbox-img" id="lightboxImg" src="" alt="">
-<button class="lightbox-nav lightbox-next" id="lightboxNext"><svg><use href="#ch-right"/></svg></button>
-<div class="lightbox-counter" id="lightboxCounter"></div>
-</div>
- 
-<section class="section" id="opiniones">
-<div class="container">
-<div class="review-badge fade-in">
-<div class="review-badge-inner">
-<div class="review-badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<div class="review-badge-text"><strong>4.3</strong> &middot; 160 resenas en Google</div>
-</div>
-</div>
-<div class="reviews-grid fade-in">
-<div class="review-card">
-<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p class="review-text">"Galeon Tavern no es solo una taberna tematizada; es un espacio con una ambientacion muy cuidada y un ambiente que invita a quedarse."</p>
-<p class="review-author">Jose FG</p>
-</div>
-<div class="review-card">
-<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p class="review-text">"Estupendo para bailar salsa y bachata los domingos. Taller gratuito y ambiente fantastico."</p>
-<p class="review-author">Maria Jose Martinez Pineiro</p>
-</div>
-<div class="review-card">
-<div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p class="review-text">"Un concepto diferente y muy original. Deseando volver."</p>
-<p class="review-author">Pepe Ortega</p>
 </div>
 </div>
 </div>
 </section>
- 
+
+<section class="section features" id="features">
+<div class="container">
+<div class="features-header" data-aos="fade-up">
+<span class="section-tag">Por qué elegirnos</span>
+<h2 class="section-title">Todo lo que necesitas para tu celebración</h2>
+</div>
+<div class="features-grid">
+<div class="feature-card" data-aos="fade-up">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+</div>
+<h3>Terraza Exterior</h3>
+<p>Espacio amplio para disfrutar al aire libre.</p>
+</div>
+<div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+</div>
+<h3>Salones para Celebraciones</h3>
+<p>Comuniones, bautizos y eventos privados.</p>
+</div>
+<div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#708238" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</div>
+<h3>Menú Infantil</h3>
+<p>Pensado para los más pequeños.</p>
+</div>
+<div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#708238" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+</div>
+<h3>Zona Familiar</h3>
+<p>Espacios cómodos para grupos y familias.</p>
+</div>
+<div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C76B4F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+</div>
+<h3>Cocina Tradicional</h3>
+<p>Recetas elaboradas con productos seleccionados.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section carta" id="carta">
+<div class="container">
+<div class="carta-header" data-aos="fade-up">
+<span class="section-tag">Nuestra carta</span>
+<h2 class="section-title">Gastronomía tradicional andaluza</h2>
+<p class="section-text">Selección de platos elaborados con productos de temporada y recetas de siempre.</p>
+</div>
+<div class="carta-tabs" data-aos="fade-up">
+<button class="tab-btn active" data-cat="entrantes">Entrantes</button>
+<button class="tab-btn" data-cat="carnes">Carnes</button>
+<button class="tab-btn" data-cat="pescados">Pescados</button>
+<button class="tab-btn" data-cat="arroces">Arroces</button>
+<button class="tab-btn" data-cat="postres">Postres</button>
+<button class="tab-btn" data-cat="bebidas">Bebidas</button>
+</div>
+<div class="carta-content" data-aos="fade-up">
+<div class="carta-category active" id="cat-entrantes">
+<div class="menu-item"><div class="menu-info"><h4>Croquetas Caseras</h4><p>Selección de croquetas artesanales</p></div><span class="menu-price">9 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Jamón Ibérico</h4><p>Jamón ibérico de bellota cortado a cuchillo</p></div><span class="menu-price">18 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Salmorejo Cordobés</h4><p>Con huevo duro y jamón</p></div><span class="menu-price">8 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Revuelto de Espárragos</h4><p>Con huevos de corral y espárragos trigueros</p></div><span class="menu-price">10 €</span></div>
+</div>
+<div class="carta-category" id="cat-carnes">
+<div class="menu-item"><div class="menu-info"><h4>Solomillo al Whisky</h4><p>Solomillo ibérico con salsa al whisky</p></div><span class="menu-price">17 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Carrillada Ibérica</h4><p>Carrillada al vino tinto con puré de patata</p></div><span class="menu-price">16 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Secreto Ibérico</h4><p>Con guarnición de verduras salteadas</p></div><span class="menu-price">17 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Rabo de Toro</h4><p>Estofado tradicional</p></div><span class="menu-price">18 €</span></div>
+</div>
+<div class="carta-category" id="cat-pescados">
+<div class="menu-item"><div class="menu-info"><h4>Bacalao Gratinado</h4><p>Con aioli y tomate confitado</p></div><span class="menu-price">18 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Presa Ibérica al Pedro Ximénez</h4><p>Con salsa de Pedro Ximénez y patatas panadera</p></div><span class="menu-price">19 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Merluza de la Casa</h4><p>Merluza fresca a la plancha con verduras</p></div><span class="menu-price">16 €</span></div>
+</div>
+<div class="carta-category" id="cat-arroces">
+<div class="menu-item"><div class="menu-info"><h4>Arroz de la Casa</h4><p>Arroz meloso con carne y verduras</p></div><span class="menu-price">15 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Arroz con Bogavante</h4><p>Arroz caldoso con bogavante</p></div><span class="menu-price">22 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Paella Mixta</h4><p>Arroz con pollo, conejo y marisco</p></div><span class="menu-price">16 €</span></div>
+</div>
+<div class="carta-category" id="cat-postres">
+<div class="menu-item"><div class="menu-info"><h4>Tarta de Queso</h4><p>Tarta de queso casera</p></div><span class="menu-price">6 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Torrijas de la Abuela</h4><p>Torrijas caramelizadas con canela</p></div><span class="menu-price">7 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Flan de Huevo Casero</h4><p>Con nata montada</p></div><span class="menu-price">6 €</span></div>
+</div>
+<div class="carta-category" id="cat-bebidas">
+<div class="menu-item"><div class="menu-info"><h4>Vino de la Casa</h4><p>Tinto, blanco o rosado</p></div><span class="menu-price">3 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Cerveza Bien Fría</h4><p>Caña o botellín</p></div><span class="menu-price">2.50 €</span></div>
+<div class="menu-item"><div class="menu-info"><h4>Refrescos</h4><p>Selección de refrescos</p></div><span class="menu-price">2 €</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section galeria" id="galeria">
+<div class="container">
+<div class="galeria-header" data-aos="fade-up">
+<span class="section-tag">Galería</span>
+<h2 class="section-title">Vive la experiencia Venta El Capricho</h2>
+</div>
+</div>
+<div class="galeria-grid" data-aos="fade-up">
+<div class="galeria-item galeria-item--wide">
+<div class="galeria-img" style="background: linear-gradient(135deg, #D6C3A5 0%, #A67C52 100%);">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<span class="galeria-label">Terraza</span>
+</div>
+</div>
+<div class="galeria-item">
+<div class="galeria-img" style="background: linear-gradient(135deg, #C76B4F 0%, #8B6742 100%);">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+<span class="galeria-label">Salones</span>
+</div>
+</div>
+<div class="galeria-item">
+<div class="galeria-img" style="background: linear-gradient(135deg, #708238 0%, #5A6A2E 100%);">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+<span class="galeria-label">Comuniones</span>
+</div>
+</div>
+<div class="galeria-item">
+<div class="galeria-img" style="background: linear-gradient(135deg, #A67C52 0%, #8B6742 100%);">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+<span class="galeria-label">Platos Destacados</span>
+</div>
+</div>
+<div class="galeria-item">
+<div class="galeria-img" style="background: linear-gradient(135deg, #D6C3A5 0%, #708238 100%);">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+<span class="galeria-label">Ambiente Familiar</span>
+</div>
+</div>
+<div class="galeria-item galeria-item--wide">
+<div class="galeria-img" style="background: linear-gradient(135deg, #C76B4F 0%, #A67C52 100%);">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span class="galeria-label">Eventos y Celebraciones</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section eventos" id="eventos">
+<div class="container">
+<div class="eventos-content" data-aos="fade-up">
+<span class="section-tag">Eventos</span>
+<h2 class="section-title">Celebraciones que recordarás siempre.</h2>
+<p class="section-text">Haz de tu próximo evento un momento inolvidable. Contamos con espacios adaptados para cada ocasión y un equipo dispuesto a hacer realidad tus ideas.</p>
+</div>
+<div class="eventos-grid" data-aos="fade-up" data-aos-delay="100">
+<div class="evento-card"><div class="evento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M12 14v8"/><path d="M8 18h8"/></svg></div><h4>Comuniones</h4><p>Celebra este día tan especial con los tuyos.</p></div>
+<div class="evento-card"><div class="evento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><path d="M2 12h4l3-9 4 18 4-9 3 9h4"/></svg></div><h4>Bautizos</h4><p>Un día único en un entorno acogedor.</p></div>
+<div class="evento-card"><div class="evento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Cumpleaños</h4><p>Celebra con los tuyos en un ambiente festivo.</p></div>
+<div class="evento-card"><div class="evento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>Comidas de Empresa</h4><p>Espacios profesionales para tu equipo.</p></div>
+<div class="evento-card"><div class="evento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Reuniones Familiares</h4><p>El lugar perfecto para reunir a la familia.</p></div>
+<div class="evento-card"><div class="evento-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Eventos Privados</h4><p>Consulta condiciones para tu celebración.</p></div>
+</div>
+<div class="eventos-cta" data-aos="fade-up">
+<a href="#reservas" class="btn btn-primary">Solicitar información</a>
+</div>
+</div>
+</section>
+
+<section class="section opiniones" id="opiniones">
+<div class="container">
+<div class="opiniones-header" data-aos="fade-up">
+<span class="section-tag">Opiniones</span>
+<div class="opiniones-badge">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+<span>4.0 ★ · 764 reseñas Google</span>
+</div>
+<h2 class="section-title">Lo que dicen nuestros clientes</h2>
+</div>
+<div class="opiniones-grid" data-aos="fade-up">
+<div class="opinion-card">
+<div class="opinion-stars">★★★★★</div>
+<h4>Lola Ramos</h4>
+<p>"Celebré la comunión de mi hija y fue un acierto total. Atención excelente y organización impecable."</p>
+</div>
+<div class="opinion-card">
+<div class="opinion-stars">★★★★☆</div>
+<h4>Jorge Rguez</h4>
+<p>"Buen restaurante para ir con niños. Amplios espacios y terraza exterior."</p>
+</div>
+<div class="opinion-card">
+<div class="opinion-stars">★★★★★</div>
+<h4>Equipo Cocina</h4>
+<p>"Trabajamos cada día para que cada cliente disfrute de una experiencia especial."</p>
+</div>
+</div>
+</div>
+</section>
+
 <section class="section reservas" id="reservas">
 <div class="container">
-<div class="section-header fade-in">
-<svg class="ico ico-lg" width="28" height="28"><use href="#cheers"/></svg>
-<h2 class="section-title">Reserva tu Mesa</h2>
-<p class="section-subtitle">Cuentanos cuando vienes y te guardamos tu sitio</p>
+<div class="reservas-content" data-aos="fade-up">
+<span class="section-tag">Reservas</span>
+<h2 class="section-title">Reserva tu mesa</h2>
+<p class="section-text">Déjanos tus datos y te confirmaremos la reserva lo antes posible.</p>
 </div>
-<div class="reservas-form fade-in">
-<form id="reservaForm">
+<form class="reservas-form" id="reservasForm" data-aos="fade-up">
 <div class="form-row">
 <div class="form-group">
-<label><svg class="ico ico-sm"><use href="#compass"/></svg>Nombre</label>
-<input type="text" id="reservaNombre" required placeholder="Tu nombre">
+<label for="name">Nombre completo</label>
+<input type="text" id="name" name="name" required placeholder="Ej: María García" autocomplete="name">
 </div>
 <div class="form-group">
-<label><svg class="ico ico-sm"><use href="#phone"/></svg>Telefono</label>
-<input type="tel" id="reservaTelefono" required placeholder="Tu telefono">
-</div>
-</div>
-<div class="form-group">
-<label><svg class="ico ico-sm"><use href="#map"/></svg>Email</label>
-<input type="email" id="reservaEmail" required placeholder="tu@email.com">
-</div>
-<div class="form-row">
-<div class="form-group">
-<label><svg class="ico ico-sm"><use href="#clock"/></svg>Fecha</label>
-<input type="date" id="reservaFecha" required>
-</div>
-<div class="form-group">
-<label><svg class="ico ico-sm"><use href="#clock"/></svg>Hora</label>
-<input type="time" id="reservaHora" required>
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required placeholder="ej: maria@email.com" autocomplete="email">
 </div>
 </div>
 <div class="form-row">
 <div class="form-group">
-<label>Personas</label>
-<select id="reservaPersonas" required>
-<option value="">Selecciona</option>
+<label for="phone">Teléfono</label>
+<input type="tel" id="phone" name="phone" required placeholder="Ej: 612345678" autocomplete="tel">
+</div>
+<div class="form-group">
+<label for="date">Fecha</label>
+<input type="date" id="date" name="date" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="time">Hora</label>
+<select id="time" name="time" required>
+<option value="">Seleccionar hora</option>
+<option value="13:00">13:00</option>
+<option value="13:30">13:30</option>
+<option value="14:00">14:00</option>
+<option value="14:30">14:30</option>
+<option value="15:00">15:00</option>
+<option value="15:30">15:30</option>
+<option value="16:00">16:00</option>
+<option value="16:30">16:30</option>
+<option value="20:00">20:00</option>
+<option value="20:30">20:30</option>
+<option value="21:00">21:00</option>
+<option value="21:30">21:30</option>
+<option value="22:00">22:00</option>
+<option value="22:30">22:30</option>
+<option value="23:00">23:00</option>
+</select>
+</div>
+<div class="form-group">
+<label for="guests">Comensales</label>
+<select id="guests" name="guests" required>
+<option value="">Número de personas</option>
 <option value="1">1 persona</option>
 <option value="2">2 personas</option>
 <option value="3">3 personas</option>
@@ -483,160 +376,106 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:70px 0 28px
 <option value="5">5 personas</option>
 <option value="6">6 personas</option>
 <option value="7">7 personas</option>
-<option value="8">8+ personas</option>
-</select>
-</div>
-<div class="form-group">
-<label>Ocasion</label>
-<select id="reservaOcasion">
-<option value="">Selecciona</option>
-<option value="cumpleanos">Cumpleanos</option>
-<option value="despedida">Despedida</option>
-<option value="empresa">Evento de empresa</option>
-<option value="amigos">Quedada de amigos</option>
-<option value="otro">Otro</option>
+<option value="8">8 personas</option>
+<option value="9">9 personas</option>
+<option value="10">10+ personas</option>
 </select>
 </div>
 </div>
 <div class="form-group">
-<label>Comentarios</label>
-<textarea id="reservaComentarios" placeholder="Algo que debamos saber..."></textarea>
+<label for="comments">Comentarios adicionales</label>
+<textarea id="comments" name="comments" rows="3" placeholder="Alergias, celebración especial, peticiones..."></textarea>
 </div>
-<button type="submit" class="form-submit">Reservar Mesa</button>
+<button type="submit" class="btn btn-primary btn-full">Reservar mesa</button>
 <div class="form-message" id="formMessage"></div>
 </form>
 </div>
-</div>
 </section>
- 
-<section class="section location-section" id="ubicacion">
+
+<section class="section ubicacion" id="ubicacion">
 <div class="container">
-<div class="section-header fade-in">
-<svg class="ico ico-lg" width="28" height="28"><use href="#compass"/></svg>
-<h2 class="section-title">Encuentranos</h2>
-<p class="section-subtitle">Te esperamos en el Poligono PISA</p>
+<div class="ubicacion-grid">
+<div class="ubicacion-info" data-aos="fade-right">
+<span class="section-tag">Ubicación</span>
+<h2 class="section-title">Ven a conocernos</h2>
+<address class="ubicacion-address">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+<span>Calle Mandarina 2, 41927 Mairena del Aljarafe, Sevilla</span>
+</address>
+<div class="ubicacion-phone">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<a href="tel:664424736">664 424 736</a>
 </div>
-<div class="location-grid">
-<div class="location-info fade-in">
-<h3><svg class="ico" width="20" height="20"><use href="#anchor"/></svg>Como llegar</h3>
-<div class="location-detail"><svg class="ico"><use href="#loc"/></svg><span>Calle Nobel 7, Local C<br>Poligono PISA<br>41927 Mairena del Aljarafe, Sevilla</span></div>
-<div class="location-detail"><svg class="ico"><use href="#phone"/></svg><a href="tel:+34617049166" style="color:var(--ink)">617 04 91 66</a></div>
-<div class="location-detail"><svg class="ico"><use href="#clock"/></svg><span>Jueves a Domingo &mdash; 20:00 a 04:00</span></div>
-<div class="location-buttons">
-<a href="tel:+34617049166" class="btn btn-primary"><svg class="btn-ico"><use href="#phone"/></svg>Llamar</a>
-<a href="https://www.google.com/maps/search/?api=1&query=37.3522,-6.0645" target="_blank" rel="noopener" class="btn btn-outline"><svg class="btn-ico"><use href="#loc"/></svg>Abrir en Google Maps</a>
+<div class="ubicacion-buttons">
+<a href="tel:664424736" class="btn btn-primary">Llamar ahora</a>
+<a href="https://maps.google.com/?q=Calle+Mandarina+2+41927+Mairena+del+Aljarafe+Sevilla" target="_blank" rel="noopener" class="btn btn-secondary">Abrir en Google Maps</a>
+</div>
+<div class="ubicacion-horario">
+<h3>Horario</h3>
+<div class="horario-grid">
+<div><span class="horario-dia">Miércoles</span><span class="horario-hora">13:00–17:00</span></div>
+<div><span class="horario-dia">Jueves</span><span class="horario-hora">13:00–17:00</span></div>
+<div><span class="horario-dia">Viernes</span><span class="horario-hora">13:00–17:00 · 20:00–00:00</span></div>
+<div><span class="horario-dia">Sábado</span><span class="horario-hora">13:00–00:00</span></div>
+<div><span class="horario-dia">Domingo</span><span class="horario-hora">13:00–18:00</span></div>
 </div>
 </div>
-<div class="location-map fade-in">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.5!2d-6.0645!3d37.3522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0f0a1b2c3d4e5f%3A0x1234567890abcdef!2sCalle%20Nobel%2C%207%2C%2041927%20Mairena%20del%20Aljarafe%2C%20Sevilla!5e0!3m2!1ses!2ses!4v1" allowfullscreen loading="lazy" title="Ubicacion Galeon Tavern"></iframe>
+</div>
+<div class="ubicacion-mapa" data-aos="fade-left">
+<div class="mapa-placeholder">
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#A67C52" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+<p>Calle Mandarina 2, Mairena del Aljarafe</p>
+<a href="https://maps.google.com/?q=Calle+Mandarina+2+41927+Mairena+del+Aljarafe+Sevilla" target="_blank" rel="noopener" class="btn btn-outline">Ver en Google Maps</a>
+</div>
 </div>
 </div>
 </div>
 </section>
- 
-<footer>
+
+<footer class="footer">
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<a href="#" class="nav-logo"><svg class="ico" width="20" height="20"><use href="#ship"/></svg>GALEON <span>TAVERN</span></a>
-<p>El puerto donde empiezan las mejores historias. Copas, musica, karaoke y baile en el corazon del Aljarafe.</p>
-<div class="footer-social">
-<a href="#" aria-label="Instagram" title="Instagram"><svg><use href="#ig"/></svg></a>
-<a href="#" aria-label="Facebook" title="Facebook"><svg><use href="#fb"/></svg></a>
-<a href="#" aria-label="TikTok" title="TikTok"><svg><use href="#tt"/></svg></a>
+<h3>VENTA EL CAPRICHO</h3>
+<p class="footer-tagline">"Donde cada celebración se convierte en un recuerdo"</p>
 </div>
-</div>
-<div class="footer-col">
-<h4>Navegacion</h4>
+<div class="footer-links">
+<h4>Enlaces</h4>
 <ul>
-<li><a href="#nosotros">Nosotros</a></li>
-<li><a href="#menu">Carta</a></li>
-<li><a href="#galeria">Galeria</a></li>
+<li><a href="#carta">Carta</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#eventos">Eventos</a></li>
 <li><a href="#opiniones">Opiniones</a></li>
 <li><a href="#reservas">Reservas</a></li>
 </ul>
 </div>
-<div class="footer-col">
+<div class="footer-contact">
 <h4>Contacto</h4>
 <ul>
-<li><a href="tel:+34617049166">617 04 91 66</a></li>
-<li><a href="https://www.google.com/maps/search/?api=1&query=37.3522,-6.0645" target="_blank">Como llegar</a></li>
-<li><a href="#reservas">Reservar mesa</a></li>
+<li><a href="tel:664424736">664 424 736</a></li>
+<li><a href="https://maps.google.com/?q=Calle+Mandarina+2+41927+Mairena+del+Aljarafe+Sevilla" target="_blank" rel="noopener">Calle Mandarina 2, Mairena del Aljarafe</a></li>
+</ul>
+</div>
+<div class="footer-horario">
+<h4>Horario</h4>
+<ul>
+<li>Mié–Jue: 13:00–17:00</li>
+<li>Vie: 13:00–17:00 · 20:00–00:00</li>
+<li>Sáb: 13:00–00:00</li>
+<li>Dom: 13:00–18:00</li>
 </ul>
 </div>
 </div>
 <div class="footer-bottom">
-<p>&copy; 2025 Galeon Tavern &mdash; Todos los derechos reservados</p>
+<p>&copy; 2026 Venta El Capricho. Todos los derechos reservados.</p>
 </div>
 </div>
 </footer>
- 
-<script>
-var menuData={cervezas:[{name:"Cruzcampo",desc:"Cania bien fria",price:"3,50"},{name:"Cruzcampo (Jarra)",desc:"Para los que tienen sed",price:"5,00"},{name:"Alhambra Especial",desc:"Cerveza premium",price:"4,00"},{name:"Heineken",desc:"Lager internacional",price:"4,00"},{name:"Corona",desc:"Mexicana con lima",price:"4,50"},{name:"Paulaner",desc:"Trigo alemana",price:"5,00"},{name:"Sin Alcohol",desc:"Cerveza 0,0",price:"3,00"}],copas:[{name:"Ron",desc:"Fundador, Carta Blanca",price:"7,00"},{name:"Whisky",desc:"Dyc o Ballantine's con cola",price:"8,00"},{name:"Ginebra (Beefeater)",desc:"Con tonica premium",price:"8,00"},{name:"Ginebra (Hendrick's)",desc:"Gin-tonic de autor",price:"10,00"},{name:"Vodka (Absolut)",desc:"Con naranja o arandanos",price:"8,00"},{name:"Tequila (Jose Cuervo)",desc:"Plata o reposado",price:"8,00"},{name:"Jagger Bomb",desc:"El clasico de la noche",price:"6,00"}],cocteles:[{name:"Mojito",desc:"Hierbabuena, lima y ron",price:"8,00"},{name:"Cuba Libre",desc:"Ron, cola y lima",price:"7,00"},{name:"Pina Colada",desc:"Cremoso de pina y coco",price:"9,00"},{name:"Caipirinha",desc:"Con cachaca brasilena",price:"8,00"},{name:"Sex on the Beach",desc:"Vodka y frutos rojos",price:"9,00"},{name:"Long Island",desc:"El mas potente de la carta",price:"10,00"},{name:"Margarita",desc:"Tequila, lima y sal",price:"8,00"}],refrescos:[{name:"Coca-Cola",desc:"Lata 33cl",price:"2,00"},{name:"Coca-Cola Zero",desc:"Lata 33cl",price:"2,00"},{name:"Nestea",desc:"Limonada fria",price:"2,00"},{name:"Aquarius",desc:"Limon o naranja",price:"2,00"},{name:"Agua Mineral",desc:"Con o sin gas",price:"1,50"},{name:"Tonica (Schweppes)",desc:"Para combinados",price:"2,00"},{name:"Zumo Natural",desc:"Naranja del dia",price:"2,50"}],snacks:[{name:"Patatas Fritas",desc:"Bolsa individual",price:"2,00"},{name:"Aceitunas",desc:"Racion de aceitunas alinadas",price:"3,00"},{name:"Frutos Secos",desc:"Mix de frutos secos",price:"3,00"},{name:"Cacahuetes",desc:"Cacahuetes tostados",price:"2,50"},{name:"Gusanitos",desc:"Bolsa individual",price:"2,00"},{name:"Tabla de Queso",desc:"Seleccion de 3 quesos",price:"8,00"}]};
-var GALLERY_IMAGES=["https://res.cloudinary.com/dmuxgamms/image/upload/v1782151794/unnamed_9_qgwlrh.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151793/unnamed_11_kq9rln.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151793/unnamed_12_vnj9mb.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151792/unnamed_10_jc0864.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151790/unnamed_14_habgcg.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151789/unnamed_13_kctplq.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151788/unnamed_15_xyboyk.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151787/unnamed_16_xbycrm.webp","https://res.cloudinary.com/dmuxgamms/image/upload/v1782151786/unnamed_17_vdqxqw.webp"];
-var SUPABASE_URL="https://tu-proyecto.supabase.co",SUPABASE_ANON_KEY="tu-anon-key";
-function renderMenu(c){var g=document.getElementById('menuGrid');g.innerHTML=menuData[c].map(function(i){return'<div class="menu-item"><div class="menu-item-info"><h4>'+i.name+'</h4><p>'+i.desc+'</p></div><span class="menu-item-price">'+i.price+'\u20AC</span></div>'}).join('')}
-document.querySelectorAll('.menu-cat').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.menu-cat').forEach(function(x){x.classList.remove('active')});b.classList.add('active');renderMenu(b.dataset.cat)})});
-function renderGallery(){var g=document.getElementById('galleryGrid');g.innerHTML=GALLERY_IMAGES.map(function(u,i){return'<div class="gallery-item" data-index="'+i+'"><img src="'+u+'" alt="Galeon Tavern '+(i+1)+'" loading="lazy"><div class="gallery-item-overlay"><svg class="ico" width="26" height="26"><use href="#anchor"/></svg></div></div>'}).join('')}
-var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg'),lc=document.getElementById('lightboxCounter');
-function ol(i){ci=i;ul();lb.classList.add('active');document.body.style.overflow='hidden'}
-function ul(){li.src=GALLERY_IMAGES[ci];li.alt='Galeon Tavern '+(ci+1);lc.textContent=(ci+1)+' / '+GALLERY_IMAGES.length}
-document.getElementById('galleryGrid').addEventListener('click',function(e){var it=e.target.closest('.gallery-item');if(it)ol(parseInt(it.dataset.index))});
-document.getElementById('lightboxClose').addEventListener('click',function(){lb.classList.remove('active');document.body.style.overflow=''});
-document.getElementById('lightboxPrev').addEventListener('click',function(){ci=(ci-1+GALLERY_IMAGES.length)%GALLERY_IMAGES.length;ul()});
-document.getElementById('lightboxNext').addEventListener('click',function(){ci=(ci+1)%GALLERY_IMAGES.length;ul()});
-document.addEventListener('keydown',function(e){if(!lb.classList.contains('active'))return;if(e.key==='Escape')document.getElementById('lightboxClose').click();if(e.key==='ArrowLeft')document.getElementById('lightboxPrev').click();if(e.key==='ArrowRight')document.getElementById('lightboxNext').click()});
-lb.addEventListener('click',function(e){if(e.target===lb)document.getElementById('lightboxClose').click()});
-document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
-window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);document.getElementById('navLinks').classList.remove('open')});
-var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}})},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
- 
-(function(){
-  var ship=document.getElementById('routeShip');
-  var route=document.querySelector('.scroll-route');
-  if(!ship||!route)return;
-  var topPad=90,bottomPad=90;
-  function update(){
-    var docH=document.documentElement.scrollHeight-window.innerHeight;
-    var pct=docH>0?Math.min(1,Math.max(0,window.scrollY/docH)):0;
-    var trackHeight=window.innerHeight-topPad-bottomPad;
-    ship.style.top=(topPad+pct*trackHeight)+'px';
-  }
-  window.addEventListener('scroll',update,{passive:true});
-  window.addEventListener('resize',update);
-  update();
-})();
 
-/* Large interactive ship on the left */
-(function(){
-  var wrap=document.querySelector('.large-ship-wrap');
-  var ship=document.getElementById('largeShip');
-  if(!wrap||!ship)return;
-  var startY=100;
-  function update(){
-    var docH=document.documentElement.scrollHeight-window.innerHeight;
-    var pct=docH>0?Math.min(1,Math.max(0,window.scrollY/docH)):0;
-    var trackH=window.innerHeight-320;
-    wrap.style.top=(startY+pct*trackH)+'px';
-    ship.style.transform='translateX(-50%) rotate('+(Math.sin(pct*Math.PI*4)*0.8)+'deg)';
-  }
-  window.addEventListener('scroll',update,{passive:true});
-  window.addEventListener('resize',update);
-  update();
-})();
- 
-document.getElementById('reservaFecha').min=new Date().toISOString().split('T')[0];
-document.getElementById('reservaForm').addEventListener('submit',async function(e){
-e.preventDefault();var msg=document.getElementById('formMessage');msg.className='form-message';msg.style.display='none';
-var n=document.getElementById('reservaNombre').value.trim(),t=document.getElementById('reservaTelefono').value.trim(),em=document.getElementById('reservaEmail').value.trim(),f=document.getElementById('reservaFecha').value,h=document.getElementById('reservaHora').value,p=document.getElementById('reservaPersonas').value,o=document.getElementById('reservaOcasion').value,c=document.getElementById('reservaComentarios').value.trim();
-if(!n||!t||!em||!f||!h||!p){msg.textContent='Por favor, rellena todos los campos obligatorios.';msg.className='form-message error';msg.style.display='block';return}
-if(t.length<9){msg.textContent='El telefono debe tener al menos 9 digitos.';msg.className='form-message error';msg.style.display='block';return}
-var sd=new Date(f+'T'+h);if(sd<new Date()){msg.textContent='La fecha y hora deben ser posteriores al momento actual.';msg.className='form-message error';msg.style.display='block';return}
-var sb=this.querySelector('button[type="submit"]');sb.disabled=true;sb.textContent='Reservando...';
-try{var r=await fetch(SUPABASE_URL+'/rest/v1/reservas',{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY},body:JSON.stringify({nombre:n,telefono:t,email:em,fecha:f,hora:h,personas:parseInt(p),ocasion:o||null,comentarios:c||null,confirmada:false})});if(!r.ok)throw new Error('Error');msg.textContent='Reserva realizada con exito. Te confirmaremos por WhatsApp o llamada.';msg.className='form-message success';msg.style.display='block';this.reset()}catch(e){msg.textContent='Hubo un error al procesar tu reserva. Intentelo de nuevo o llamenos.';msg.className='form-message error';msg.style.display='block'}finally{sb.disabled=false;sb.textContent='Reservar Mesa'}
-});
-renderMenu('cervezas');renderGallery();
-</script>
+<button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="script.js"></script>
 </body>
 </html>
