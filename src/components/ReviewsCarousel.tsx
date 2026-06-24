@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { reviews } from '../data';
 
 export default function ReviewsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef(0);
 
   const prevReview = () => {
     setCurrentIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
@@ -12,6 +13,18 @@ export default function ReviewsCarousel() {
 
   const nextReview = () => {
     setCurrentIndex((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) prevReview();
+      else nextReview();
+    }
   };
 
   return (
@@ -34,7 +47,9 @@ export default function ReviewsCarousel() {
               initial={{ opacity: 0, scale: 0.98, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               exit={{ opacity: 0, scale: 0.98, x: -20 }}
-              className="premium-card-solid p-8 sm:p-10 rounded-2xl border-2 border-primary/50 relative shadow-md max-w-3xl w-full text-center"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              className="premium-card-solid p-8 sm:p-10 rounded-2xl border-2 border-primary/50 relative shadow-md max-w-3xl w-full text-center cursor-grab active:cursor-grabbing"
             >
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-md">
                 <Quote className="w-5 h-5" />

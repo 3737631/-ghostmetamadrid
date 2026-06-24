@@ -201,7 +201,6 @@ export default function App() {
           className="absolute top-[68px] left-0 w-full z-10 pointer-events-none select-none"
         >
           <motion.div style={{ height: mantelHeight }} className="bg-mantel w-full shadow-inner"></motion.div>
-          <div className="puntilla-border-bottom opacity-85"></div>
         </motion.div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-10">

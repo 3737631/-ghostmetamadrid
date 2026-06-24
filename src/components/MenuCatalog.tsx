@@ -51,7 +51,7 @@ export default function MenuCatalog() {
         </div>
 
         {/* Tab selector */}
-        <div className="flex justify-start lg:justify-center items-center overflow-x-auto pb-3 mb-10 gap-1 border-b border-primary/30">
+        <div className="flex flex-wrap justify-center items-center pb-3 mb-10 gap-x-2 gap-y-2 border-b border-primary/30">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (

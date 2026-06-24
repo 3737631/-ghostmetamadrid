@@ -58,7 +58,7 @@ export default function ScrollMantelSection() {
       id="mantel-sensorial"
       ref={containerRef} 
       className="relative w-full"
-      style={{ height: '360vh' }}
+      style={{ height: '500vh' }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-surface flex flex-col justify-between select-none">
         
@@ -89,13 +89,7 @@ export default function ScrollMantelSection() {
             <p className="text-xs text-brown font-sans mt-2 leading-relaxed">
               Desplázate hacia abajo lentamente para extender el mantel de terracota y descubrir nuestra historia y especialidades sobre él.
             </p>
-            <div className="mt-3.5 flex justify-center">
-              <motion.div 
-                animate={{ y: [0, 6, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                className="w-1.5 h-3.5 bg-accent rounded-full"
-              />
-            </div>
+
           </motion.div>
         </div>
 
