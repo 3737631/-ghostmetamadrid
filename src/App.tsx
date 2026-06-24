@@ -14,7 +14,6 @@ import ScrollMantelSection from './components/ScrollMantelSection';
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const touchStartX = useRef(0);
@@ -88,39 +87,15 @@ export default function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    const timer = setTimeout(() => setLoading(false), 1000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-background text-text flex flex-col selection:bg-accent selection:text-white antialiased">
       
-      {/* Loader */}
-      <AnimatePresence>
-        {loading && (
-          <motion.div 
-            id="loader" 
-            className="fixed inset-0 bg-background z-[100] flex flex-col items-center justify-center p-6"
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 rounded-full border-4 border-accent border-t-transparent animate-spin mx-auto flex items-center justify-center">
-                <span className="font-serif italic font-bold text-accent text-xs">VC</span>
-              </div>
-              <div>
-                <h2 className="font-serif font-bold text-xl text-text tracking-wide uppercase">Venta El Capricho</h2>
-                <p className="text-xs text-brown font-sans mt-1">Abriendo las puertas de la venta...</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Header */}
       <header 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -364,56 +339,6 @@ export default function App() {
               </button>
             ))}
           </div>
-
-          {/* Lightbox */}
-          <AnimatePresence>
-            {lightboxOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 z-[200] bg-black/85 flex items-center justify-center p-4 sm:p-8"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-                onClick={closeLightbox}
-              >
-                <button onClick={(e) => { e.stopPropagation(); closeLightbox(); }} className="absolute top-3 right-3 z-20 p-1.5 bg-black/40 text-white/90 hover:bg-black/60 hover:text-white rounded-full transition-colors cursor-pointer" aria-label="Cerrar">
-                  <X className="w-5 h-5" />
-                </button>
-
-                <button onClick={(e) => { e.stopPropagation(); prevImage(); }} className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 text-white/60 hover:text-white transition-colors cursor-pointer" aria-label="Anterior">
-                  <ChevronLeft className="w-8 h-8" />
-                </button>
-
-                <motion.img
-                  key={lightboxIndex}
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.92 }}
-                  transition={{ duration: 0.2 }}
-                  src={galleryImages[lightboxIndex]}
-                  alt={`Galería ${lightboxIndex + 1}`}
-                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl pointer-events-none"
-                />
-
-                <button onClick={(e) => { e.stopPropagation(); nextImage(); }} className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 text-white/60 hover:text-white transition-colors cursor-pointer" aria-label="Siguiente">
-                  <ChevronRight className="w-8 h-8" />
-                </button>
-
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                  {galleryImages.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setLightboxIndex(i)}
-                      className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
-                        i === lightboxIndex ? 'bg-white w-4' : 'bg-white/40'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </section>
 
@@ -575,6 +500,62 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center"
+          style={{ touchAction: 'none' }}
+          onClick={closeLightbox}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <button
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+            className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 hover:bg-white text-brown rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-colors"
+            aria-label="Cerrar"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center cursor-pointer transition-colors"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <img
+            key={lightboxIndex}
+            src={galleryImages[lightboxIndex]}
+            alt={`Galería ${lightboxIndex + 1}`}
+            className="max-w-[95vw] max-h-[95vh] w-auto h-auto object-contain select-none"
+            style={{ pointerEvents: 'none' }}
+            draggable={false}
+          />
+
+          <button
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center cursor-pointer transition-colors"
+            aria-label="Siguiente"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+            {galleryImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setLightboxIndex(i)}
+                className={`rounded-full transition-all cursor-pointer ${
+                  i === lightboxIndex ? 'w-3 h-3 bg-white' : 'w-2 h-2 bg-white/40'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
     </div>
   );
