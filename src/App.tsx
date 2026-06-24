@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { 
-  MapPin, Phone, Clock, Menu, X, ChevronRight, 
+  MapPin, Phone, Clock, Menu, X, ChevronRight, ChevronLeft,
   Sparkles, Heart, Calendar, Star, ChevronDown
 } from 'lucide-react';
 
@@ -15,6 +15,68 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const touchStartX = useRef(0);
+
+  const galleryImages = [
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260950/unnamed_32_finhje.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260950/unnamed_29_uutobw.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260950/unnamed_22_t4nya7.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_27_mhrc8j.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_20_bi5bhp.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_24_g77mqn.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_28_eslvlg.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_26_z1zqjt.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_25_h4vgqs.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_19_c2jiks.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260952/unnamed_23_jmbunf.webp',
+    'https://res.cloudinary.com/dmuxgamms/image/upload/v1782260952/unnamed_18_ckvs0l.webp',
+  ];
+
+  const openLightbox = useCallback((index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
+
+  const nextImage = useCallback(() => {
+    setLightboxIndex((prev) => (prev + 1) % galleryImages.length);
+  }, [galleryImages.length]);
+
+  const prevImage = useCallback(() => {
+    setLightboxIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  }, [galleryImages.length]);
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    };
+    document.addEventListener('keydown', handleKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = '';
+    };
+  }, [lightboxOpen, closeLightbox, nextImage, prevImage]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) prevImage();
+      else nextImage();
+    }
+  };
 
   const { scrollY } = useScroll();
   const mantelY = useTransform(scrollY, [0, 1000], [0, 240]);
@@ -293,43 +355,65 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260950/unnamed_32_finhje.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260950/unnamed_29_uutobw.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260950/unnamed_22_t4nya7.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_27_mhrc8j.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_20_bi5bhp.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_24_g77mqn.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_28_eslvlg.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_26_z1zqjt.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_25_h4vgqs.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260951/unnamed_19_c2jiks.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260952/unnamed_23_jmbunf.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden group">
-              <img src="https://res.cloudinary.com/dmuxgamms/image/upload/v1782260952/unnamed_18_ckvs0l.webp" alt="Galería" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-            </div>
+            {galleryImages.map((url, i) => (
+              <button
+                key={i}
+                onClick={() => openLightbox(i)}
+                className="aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent"
+              >
+                <img src={url} alt={`Galería ${i + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+              </button>
+            ))}
           </div>
+
+          {/* Lightbox */}
+          <AnimatePresence>
+            {lightboxOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[200] bg-black/85 flex items-center justify-center p-4 sm:p-8"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <button onClick={closeLightbox} className="absolute top-4 right-4 z-20 p-2 text-white/80 hover:text-white transition-colors cursor-pointer" aria-label="Cerrar">
+                  <X className="w-7 h-7" />
+                </button>
+
+                <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 text-white/60 hover:text-white transition-colors cursor-pointer" aria-label="Anterior">
+                  <ChevronLeft className="w-8 h-8" />
+                </button>
+
+                <motion.img
+                  key={lightboxIndex}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.92 }}
+                  transition={{ duration: 0.2 }}
+                  src={galleryImages[lightboxIndex]}
+                  alt={`Galería ${lightboxIndex + 1}`}
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                />
+
+                <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 text-white/60 hover:text-white transition-colors cursor-pointer" aria-label="Siguiente">
+                  <ChevronRight className="w-8 h-8" />
+                </button>
+
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+                  {galleryImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setLightboxIndex(i)}
+                      className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
+                        i === lightboxIndex ? 'bg-white w-4' : 'bg-white/40'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 

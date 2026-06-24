@@ -11,47 +11,47 @@ export default function ScrollMantelSection() {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 140,
-    damping: 22,
-    restDelta: 0.001
+    stiffness: 90,
+    damping: 28,
+    restDelta: 0.002
   });
 
-  const tableclothHeight = useTransform(smoothProgress, [0, 0.25], ['12%', '100%']);
+  const tableclothHeight = useTransform(smoothProgress, [0, 0.32], ['12%', '100%']);
   const tableclothWaveY = useTransform(smoothProgress, (p) => Math.sin(p * Math.PI * 4.5) * 5);
 
-  // Desktop transforms
-  const item1Opacity = useTransform(smoothProgress, [0.28, 0.40], [0, 1]);
-  const item1Scale = useTransform(smoothProgress, [0.28, 0.42], [0.94, 1]);
-  const item1Y = useTransform(smoothProgress, [0.28, 0.42], [30, 0]);
-  const item1Rotate = useTransform(smoothProgress, [0.28, 0.42], [-3, -1]);
+  // Desktop transforms — wider windows for smooth transitions at any speed
+  const item1Opacity = useTransform(smoothProgress, [0.22, 0.44], [0, 1]);
+  const item1Scale = useTransform(smoothProgress, [0.22, 0.46], [0.94, 1]);
+  const item1Y = useTransform(smoothProgress, [0.22, 0.46], [30, 0]);
+  const item1Rotate = useTransform(smoothProgress, [0.22, 0.46], [-3, -1]);
 
-  const item2Opacity = useTransform(smoothProgress, [0.42, 0.54], [0, 1]);
-  const item2Scale = useTransform(smoothProgress, [0.42, 0.56], [0.94, 1]);
-  const item2Y = useTransform(smoothProgress, [0.42, 0.56], [30, 0]);
-  const item2Rotate = useTransform(smoothProgress, [0.42, 0.56], [4, 1]);
+  const item2Opacity = useTransform(smoothProgress, [0.38, 0.60], [0, 1]);
+  const item2Scale = useTransform(smoothProgress, [0.38, 0.62], [0.94, 1]);
+  const item2Y = useTransform(smoothProgress, [0.38, 0.62], [30, 0]);
+  const item2Rotate = useTransform(smoothProgress, [0.38, 0.62], [4, 1]);
 
-  const item3Opacity = useTransform(smoothProgress, [0.56, 0.68], [0, 1]);
-  const item3Scale = useTransform(smoothProgress, [0.56, 0.70], [0.94, 1]);
-  const item3Y = useTransform(smoothProgress, [0.56, 0.70], [30, 0]);
-  const item3Rotate = useTransform(smoothProgress, [0.56, 0.70], [-2, 0.5]);
+  const item3Opacity = useTransform(smoothProgress, [0.54, 0.76], [0, 1]);
+  const item3Scale = useTransform(smoothProgress, [0.54, 0.78], [0.94, 1]);
+  const item3Y = useTransform(smoothProgress, [0.54, 0.78], [30, 0]);
+  const item3Rotate = useTransform(smoothProgress, [0.54, 0.78], [-2, 0.5]);
 
-  const item4Opacity = useTransform(smoothProgress, [0.70, 0.82], [0, 1]);
-  const item4Scale = useTransform(smoothProgress, [0.70, 0.84], [0.94, 1]);
-  const item4Y = useTransform(smoothProgress, [0.70, 0.84], [30, 0]);
-  const item4Rotate = useTransform(smoothProgress, [0.70, 0.84], [3, -0.5]);
+  const item4Opacity = useTransform(smoothProgress, [0.70, 0.90], [0, 1]);
+  const item4Scale = useTransform(smoothProgress, [0.70, 0.92], [0.94, 1]);
+  const item4Y = useTransform(smoothProgress, [0.70, 0.92], [30, 0]);
+  const item4Rotate = useTransform(smoothProgress, [0.70, 0.92], [3, -0.5]);
 
-  // Mobile transforms
-  const mItem1Opacity = useTransform(smoothProgress, [0.26, 0.30, 0.42, 0.46], [0, 1, 1, 0]);
-  const mItem1Y = useTransform(smoothProgress, [0.26, 0.30, 0.42, 0.46], [20, 0, 0, -20]);
+  // Mobile transforms — wide cross-fade windows so no speed skips
+  const mItem1Opacity = useTransform(smoothProgress, [0.20, 0.28, 0.44, 0.52], [0, 1, 1, 0]);
+  const mItem1Y = useTransform(smoothProgress, [0.20, 0.28, 0.44, 0.52], [20, 0, 0, -20]);
 
-  const mItem2Opacity = useTransform(smoothProgress, [0.44, 0.48, 0.60, 0.64], [0, 1, 1, 0]);
-  const mItem2Y = useTransform(smoothProgress, [0.44, 0.48, 0.60, 0.64], [20, 0, 0, -20]);
+  const mItem2Opacity = useTransform(smoothProgress, [0.44, 0.52, 0.66, 0.74], [0, 1, 1, 0]);
+  const mItem2Y = useTransform(smoothProgress, [0.44, 0.52, 0.66, 0.74], [20, 0, 0, -20]);
 
-  const mItem3Opacity = useTransform(smoothProgress, [0.62, 0.66, 0.78, 0.82], [0, 1, 1, 0]);
-  const mItem3Y = useTransform(smoothProgress, [0.62, 0.66, 0.78, 0.82], [20, 0, 0, -20]);
+  const mItem3Opacity = useTransform(smoothProgress, [0.66, 0.74, 0.86, 0.92], [0, 1, 1, 0]);
+  const mItem3Y = useTransform(smoothProgress, [0.66, 0.74, 0.86, 0.92], [20, 0, 0, -20]);
 
-  const mItem4Opacity = useTransform(smoothProgress, [0.80, 0.84, 0.98, 1.0], [0, 1, 1, 1]);
-  const mItem4Y = useTransform(smoothProgress, [0.80, 0.84], [20, 0]);
+  const mItem4Opacity = useTransform(smoothProgress, [0.86, 0.94, 1.0, 1.0], [0, 1, 1, 1]);
+  const mItem4Y = useTransform(smoothProgress, [0.86, 0.94], [20, 0]);
 
   return (
     <div 
@@ -209,7 +209,7 @@ export default function ScrollMantelSection() {
 
               <motion.div 
                 style={{ opacity: item4Opacity, scale: item4Scale, y: item4Y, rotate: item4Rotate }}
-                className="bg-text text-[#F3EEE4] p-7 border border-[#CFC2AE]/25 rounded-none relative overflow-hidden"
+                className="bg-brown text-[#F3EEE4] p-7 border border-[#CFC2AE]/25 rounded-none relative overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-3 h-full bg-black/15 pointer-events-none" />
                 <div className="pl-3.5">
@@ -280,7 +280,7 @@ export default function ScrollMantelSection() {
                 </p>
               </motion.div>
 
-              <motion.div style={{ opacity: mItem4Opacity, y: mItem4Y }} className="absolute inset-x-2 bg-text text-[#F3EEE4] p-5 border border-[#CFC2AE]/25 rounded-none">
+              <motion.div style={{ opacity: mItem4Opacity, y: mItem4Y }} className="absolute inset-x-2 bg-brown text-[#F3EEE4] p-5 border border-[#CFC2AE]/25 rounded-none">
                 <div className="absolute top-0 left-0 w-2.5 h-full bg-black/15 pointer-events-none" />
                 <div className="pl-3">
                   <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#B8826A] font-sans flex items-center gap-1 mb-1">
