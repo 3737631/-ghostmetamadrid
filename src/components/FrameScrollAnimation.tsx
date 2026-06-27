@@ -15,6 +15,7 @@ export default function FrameScrollAnimation() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
+  const readyRef = useRef(false);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -27,10 +28,11 @@ export default function FrameScrollAnimation() {
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
       const el = document.createElement('img');
       el.src = `${BASE}frames/ezgif-frame-${pad(i)}.jpg`;
-      el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;background-color:#0F0F0F';
+      el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0';
       el.onload = () => {
         loaded++;
         if (loaded === TOTAL_FRAMES) {
+          readyRef.current = true;
           setLoading(false);
           imgEls[0].style.opacity = '1';
         }
@@ -54,7 +56,7 @@ export default function FrameScrollAnimation() {
       scrub: true,
       anticipatePin: 1,
       onUpdate: (self) => {
-        if (loading) return;
+        if (!readyRef.current) return;
         const idx = Math.min(Math.floor(self.progress * TOTAL_FRAMES), TOTAL_FRAMES - 1);
         showFrame(idx);
       },
@@ -73,19 +75,11 @@ export default function FrameScrollAnimation() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full overflow-hidden"
-      style={{ backgroundColor: '#0F0F0F' }}
-    >
-      <div
-        ref={wrapperRef}
-        className="relative w-full h-screen"
-        style={{ willChange: 'opacity', backgroundColor: '#0F0F0F' }}
-      >
+    <section ref={sectionRef} className="relative w-full overflow-hidden">
+      <div ref={wrapperRef} className="relative w-full h-screen" style={{ willChange: 'opacity' }}>
         {loading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
-            <div className="w-8 h-8 border border-[#C8A97E]/30 border-t-transparent rounded-full animate-spin mb-4" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-black">
+            <div className="w-8 h-8 border border-white/20 border-t-transparent rounded-full animate-spin mb-4" />
           </div>
         )}
       </div>
