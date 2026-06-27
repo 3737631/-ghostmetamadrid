@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -18,7 +17,6 @@ export default function FrameScrollAnimation() {
   const [pct, setPct] = useState(0);
   const [loading, setLoading] = useState(true);
   const readyRef = useRef(false);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -28,7 +26,9 @@ export default function FrameScrollAnimation() {
     canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
     wrapper.insertBefore(canvas, wrapper.firstChild);
     const ctx = canvas.getContext('2d', { alpha: false, willReadFrequently: false })!;
-    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    const dpr = Math.min(window.devicePixelRatio || 1, 4);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
     let w = 0, h = 0;
 
     const resize = () => {
@@ -45,6 +45,7 @@ export default function FrameScrollAnimation() {
 
     const images: HTMLImageElement[] = [];
     let loaded = 0;
+    let currentIdx = 0;
 
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
       const img = new Image();
@@ -60,7 +61,6 @@ export default function FrameScrollAnimation() {
       };
       images.push(img);
     }
-    imagesRef.current = images;
 
     function draw(idx: number) {
       const img = images[idx];
@@ -82,14 +82,12 @@ export default function FrameScrollAnimation() {
     }
     window.addEventListener('resize', onResize);
 
-    let currentIdx = 0;
-
     const st = ScrollTrigger.create({
       trigger: wrapper,
       pin: true,
       start: 'top top',
-      end: `+=${TOTAL_FRAMES * 120}`,
-      scrub: 0.5,
+      end: `+=${TOTAL_FRAMES * 60}`,
+      scrub: true,
       anticipatePin: 1,
       onUpdate: (self) => {
         if (!readyRef.current) return;
@@ -100,10 +98,10 @@ export default function FrameScrollAnimation() {
         }
       },
       onLeave: () => {
-        gsap.to(wrapper, { opacity: 0, duration: 0.8, ease: 'power2.out' });
+        gsap.to(wrapper, { opacity: 0, duration: 0.6, ease: 'power2.out' });
       },
       onEnterBack: () => {
-        gsap.to(wrapper, { opacity: 1, duration: 0.4, ease: 'power2.out' });
+        gsap.to(wrapper, { opacity: 1, duration: 0.3, ease: 'power2.out' });
       },
     });
 
