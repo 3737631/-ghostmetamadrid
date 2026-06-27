@@ -14,32 +14,62 @@ function pad(n: number): string {
 export default function FrameScrollAnimation() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const frameRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const readyRef = useRef(false);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
-    const frame = frameRef.current;
-    if (!wrapper || !frame) return;
+    if (!wrapper) return;
 
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none';
+    wrapper.insertBefore(canvas, wrapper.firstChild);
+    const ctx = canvas.getContext('2d', { alpha: false, willReadFrequently: false })!;
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    const dpr = Math.min(window.devicePixelRatio, 2);
+    let cw = 0, ch = 0;
+
+    const resize = () => {
+      cw = canvas.clientWidth;
+      ch = canvas.clientHeight;
+      canvas.width = cw * dpr;
+      canvas.height = ch * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(wrapper);
+
+    const imgs: HTMLImageElement[] = [];
     let loaded = 0;
-    let currentIdx = 0;
-    const urls: string[] = [];
 
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
-      const url = `${BASE}frames/ezgif-frame-${pad(i)}.jpg`;
-      urls.push(url);
       const img = new Image();
-      img.src = url;
+      img.src = `${BASE}frames/ezgif-frame-${pad(i)}.jpg`;
       img.onload = () => {
         loaded++;
         if (loaded === TOTAL_FRAMES) {
           readyRef.current = true;
           setLoading(false);
-          frame.style.backgroundImage = `url("${urls[0]}")`;
+          draw(0);
         }
       };
+      imgs.push(img);
+    }
+
+    let currentIdx = 0;
+
+    function draw(idx: number) {
+      const img = imgs[idx];
+      if (!img) return;
+      const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const sw = img.naturalWidth * s;
+      const sh = img.naturalHeight * s;
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, cw, ch);
+      ctx.drawImage(img, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
     }
 
     const st = ScrollTrigger.create({
@@ -54,7 +84,7 @@ export default function FrameScrollAnimation() {
         const idx = Math.min(Math.floor(self.progress * TOTAL_FRAMES), TOTAL_FRAMES - 1);
         if (idx !== currentIdx) {
           currentIdx = idx;
-          frame.style.backgroundImage = `url("${urls[idx]}")`;
+          draw(idx);
         }
       },
       onLeave: () => {
@@ -65,31 +95,18 @@ export default function FrameScrollAnimation() {
       },
     });
 
-    window.addEventListener('resize', () => ScrollTrigger.refresh());
-
     return () => {
       st.kill();
+      ro.disconnect();
+      canvas.remove();
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden select-none">
+    <section ref={sectionRef} className="relative w-full overflow-hidden">
       <div ref={wrapperRef} className="relative w-full h-screen" style={{ willChange: 'opacity' }}>
-        <div
-          ref={frameRef}
-          className="absolute inset-0 w-full h-full"
-          style={{
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            pointerEvents: 'none',
-            userSelect: 'none',
-            WebkitUserSelect: 'none',
-            WebkitTouchCallout: 'none',
-          }}
-        />
-        <div className="absolute inset-0 pointer-events-none opacity-[0.06]" style={{ background: 'rgba(0,0,0,0.06)' }} />
         {loading && (
-          <div className="absolute inset-0 flex items-center justify-center z-20 bg-black text-white/40 text-sm font-mono">
+          <div className="absolute inset-0 flex items-center justify-center z-20 bg-black text-white/40 text-sm">
             Cargando...
           </div>
         )}
