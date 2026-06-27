@@ -111,12 +111,12 @@ export default function App() {
         )}
       </header>
 
-      {/* Animation wrapper — pinned by GSAP, height provides scroll distance */}
-      <div className="animation-wrapper relative w-full bg-black" style={{
-        height: (scrollPx - (isMobile ? 56 : 80)) + 'px',
+      {/* Animation wrapper — pinned by GSAP, height = scrollPx provides full scroll distance */}
+      <div className="animation-wrapper relative w-full bg-black flex flex-col items-center justify-center" style={{
+        height: scrollPx + 'px',
         paddingTop: isMobile ? '56px' : '80px',
       }}>
-        <div className="w-full bg-black" style={{ aspectRatio: '1280/720' }}>
+        <div className="w-full shrink-0" style={{ aspectRatio: '1280/720', maxHeight: '100%' }}>
           <FrameScrollAnimation />
         </div>
       </div>
