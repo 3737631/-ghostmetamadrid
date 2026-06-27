@@ -111,13 +111,15 @@ export default function App() {
         )}
       </header>
 
-      {/* Animation wrapper — pinned by GSAP while scrolling through the spacer */}
-      <div className="animation-wrapper relative w-full bg-black" style={{ aspectRatio: '1280/720' }}>
-        <FrameScrollAnimation />
+      {/* Animation wrapper — pinned by GSAP, height provides scroll distance */}
+      <div className="animation-wrapper relative w-full bg-black" style={{
+        height: (scrollPx - (isMobile ? 56 : 80)) + 'px',
+        paddingTop: isMobile ? '56px' : '80px',
+      }}>
+        <div className="w-full bg-black" style={{ aspectRatio: '1280/720' }}>
+          <FrameScrollAnimation />
+        </div>
       </div>
-
-      {/* Spacer — provides the scroll distance for all frames to play */}
-      <div className="scroll-spacer w-full" style={{ height: scrollPx + 'px' }} />
 
       {/* Hero Content */}
       <section className="py-20 lg:py-28">

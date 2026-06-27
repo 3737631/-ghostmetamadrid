@@ -72,10 +72,10 @@ export default function FrameScrollAnimation() {
     }
 
     const st = ScrollTrigger.create({
-      trigger: '.scroll-spacer',
-      start: `top +=${isMobile ? 56 : 80}`,
-      end: `+=${scrollPx}`,
-      pin: '.animation-wrapper',
+      trigger: '.animation-wrapper',
+      start: 'top top',
+      end: 'bottom top',
+      pin: true,
       scrub: true,
       anticipatePin: 1,
       onUpdate: (self) => {
