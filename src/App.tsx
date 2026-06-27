@@ -72,7 +72,7 @@ export default function App() {
                 <div className="absolute top-full right-0 mt-2 w-44 bg-black/95 border border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
                   <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
                     className="flex items-center gap-3 px-4 py-3 text-sm text-cream/80 hover:text-white hover:bg-white/5 transition-colors">
-                    <Instagram size={16} className="text-gold" /> Instagram Reels
+                    <Instagram size={16} className="text-gold" /> Instagram
                   </a>
                   <a href="https://vm.tiktok.com/ZNRwdPpTt/" target="_blank" rel="noreferrer"
                     className="flex items-center gap-3 px-4 py-3 text-sm text-cream/80 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5">
@@ -202,6 +202,16 @@ export default function App() {
                 <p className="text-brown text-sm font-sans">{item.desc}</p>
               </motion.div>
             ))}
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+            <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-secondary text-white font-medium text-sm rounded-full hover:bg-hover transition-all shadow-md">
+              <Instagram size={16} /> Ver procesos en Instagram
+            </a>
+            <a href="https://vm.tiktok.com/ZNRwdPpTt/" target="_blank" rel="noreferrer"
+              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-cream font-medium text-sm rounded-full hover:bg-white/5 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg> Ver procesos en TikTok
+            </a>
           </div>
         </div>
       </section>
