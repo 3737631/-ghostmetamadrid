@@ -64,8 +64,7 @@ export default function FrameScrollAnimation() {
     function draw(idx: number) {
       const img = imgs[idx];
       if (!img) return;
-      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
-      const s = Math.min(scale, 1);
+      const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
       const sw = img.naturalWidth * s;
       const sh = img.naturalHeight * s;
       ctx.fillStyle = '#000';
@@ -73,10 +72,11 @@ export default function FrameScrollAnimation() {
       ctx.drawImage(img, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
     }
 
+    const mobileOff = window.innerWidth < 1024 ? 56 : 0;
     const st = ScrollTrigger.create({
       trigger: wrapper,
       pin: true,
-      start: 'top top',
+      start: `top +=${mobileOff}`,
       end: `+=${TOTAL_FRAMES * 15}`,
       scrub: true,
       anticipatePin: 1,
