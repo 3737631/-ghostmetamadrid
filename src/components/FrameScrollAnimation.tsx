@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const BASE = import.meta.env.BASE_URL;
-const TOTAL_FRAMES = 151;
+const TOTAL_FRAMES = 180;
 const SCROLL_DISTANCE = TOTAL_FRAMES * 120;
 
 function pad(n: number): string {
