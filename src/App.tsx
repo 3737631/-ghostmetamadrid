@@ -27,7 +27,7 @@ export default function App() {
                 <span className="text-gold text-xs font-bold tracking-wider">RB</span>
               </div>
               <span className="text-xl font-cursive tracking-wide text-cream">
-                Ray-Ban <span className="text-gold">LED</span>
+                Ray-Ban
               </span>
             </a>
 
@@ -92,8 +92,8 @@ export default function App() {
               LED Technology
             </h2>
             <p className="text-brown text-sm sm:text-base font-sans leading-relaxed max-w-2xl mx-auto">
-              La integración perfecta de iluminación LED de alta densidad en la montura Wayfarer más icónica del mundo.
-              Cada par de Ray-Ban LED contiene más de 200 micro-LEDs cosidos a mano en la montura de acetato.
+               La integración perfecta de iluminación LED de alta densidad en la montura Wayfarer más icónica del mundo.
+               Cada par de Ray-Ban contiene más de 200 micro-LEDs cosidos a mano en la montura de acetato.
             </p>
           </motion.div>
 
@@ -164,7 +164,7 @@ export default function App() {
                     "No solo ves el mundo. Lo iluminas."
                   </p>
                   <div className="w-12 h-[1px] bg-gold/40 mx-auto"></div>
-                  <span className="text-gold/50 text-[10px] uppercase tracking-widest font-sans block">Ray-Ban LED</span>
+                  <span className="text-gold/50 text-[10px] uppercase tracking-widest font-sans block">Ray-Ban</span>
                 </div>
               </div>
             </motion.div>
@@ -185,7 +185,7 @@ export default function App() {
               Funda de cuero con carga integrada
             </h2>
             <p className="text-brown text-sm font-sans leading-relaxed max-w-2xl mx-auto">
-              Cada Ray-Ban LED incluye una funda de cuero marrón genuino que funciona como estación de carga portátil.
+               Cada Ray-Ban incluye una funda de cuero marrón genuino que funciona como estación de carga portátil.
               Inspirada en las clásicas fundas Ray-Ban de los años 50, ahora con tecnología de carga inalámbrica Qi.
             </p>
           </motion.div>
@@ -234,7 +234,7 @@ export default function App() {
               { label: 'Lentes', value: 'UV400, antirreflejantes' },
               { label: 'Conectividad', value: 'Bluetooth 5.3' },
               { label: 'Compatibilidad', value: 'iOS 16+ / Android 12+' },
-              { label: 'App', value: 'Ray-Ban LED Controller' },
+              { label: 'App', value: 'Ray-Ban Controller' },
               { label: 'Funda', value: 'Cuero marrón con carga Qi' },
             ].map((item, i) => (
               <div key={i} className={`flex justify-between items-center py-4 px-4 ${i % 2 === 0 ? 'bg-gold/5' : ''} border-b border-gold/10`}>
@@ -282,7 +282,7 @@ export default function App() {
                 <span className="text-gold text-[9px] font-bold tracking-wider">RB</span>
               </div>
               <span className="text-base font-cursive tracking-wide text-cream/50">
-                Ray-Ban <span className="text-gold/50">LED</span>
+                Ray-Ban
               </span>
             </div>
             <div className="flex gap-6 text-[11px] font-sans text-cream/40">
@@ -292,7 +292,7 @@ export default function App() {
               <span>·</span>
               <span className="hover:text-gold/60 cursor-pointer transition-colors">Cookies</span>
             </div>
-            <p className="text-[11px] font-sans text-cream/30">&copy; {new Date().getFullYear()} Ray-Ban LED. Todos los derechos reservados.</p>
+            <p className="text-[11px] font-sans text-cream/30">&copy; {new Date().getFullYear()} Ray-Ban. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
