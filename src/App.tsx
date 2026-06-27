@@ -65,9 +65,9 @@ export default function App() {
               <a href="#precio" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Precio</a>
               <a href="#faq" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">FAQ</a>
               <a href="#pedidos" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Pedidos</a>
-              <a href={CONTACTO_EMAIL} className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Contacto</a>
-              <a href="#presupuesto" className="bg-secondary text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-hover transition-colors shadow-sm">
-                Presupuesto
+              <a href="https://instagram.com/ghostmediamadrid" target="_blank" rel="noreferrer"
+                className="bg-secondary text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-hover transition-colors shadow-sm">
+                Cómo Trabajo
               </a>
             </nav>
 
@@ -90,14 +90,10 @@ export default function App() {
                   {item}
                 </a>
               ))}
-              <a href={CONTACTO_EMAIL} onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 text-xs font-bold uppercase tracking-wider text-cream/80 hover:text-gold font-sans">
-                Contacto
-              </a>
               <div className="pt-3 px-3">
-                <a href="#presupuesto" onClick={() => setMobileMenuOpen(false)}
+                <a href="https://instagram.com/ghostmediamadrid" target="_blank" rel="noreferrer"
                   className="w-full block py-3 bg-secondary text-white font-serif text-2xl rounded-full hover:bg-hover transition-colors shadow-md mt-4 text-center">
-                  Solicitar presupuesto
+                  Cómo Trabajo
                 </a>
               </div>
             </div>
@@ -337,15 +333,20 @@ export default function App() {
               <span className="text-sm font-bold tracking-wide text-cream/50">Ghost Media</span>
               <span className="text-[8px] text-gold/40 tracking-widest uppercase font-sans">Madrid</span>
             </div>
-            <div className="flex items-center gap-3 mt-2">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer"
+            <div className="flex items-center gap-3">
+              <a href="https://instagram.com/ghostmediamadrid" target="_blank" rel="noreferrer"
                 className="p-2.5 bg-white/10 rounded-full hover:bg-secondary hover:text-white transition-colors"
-                aria-label="Síguenos en Instagram">
+                aria-label="Instagram">
                 <Instagram size={18} />
+              </a>
+              <a href="https://tiktok.com/@ghostmediamadrid" target="_blank" rel="noreferrer"
+                className="p-2.5 bg-white/10 rounded-full hover:bg-secondary hover:text-white transition-colors"
+                aria-label="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
               </a>
               <a href="https://facebook.com" target="_blank" rel="noreferrer"
                 className="p-2.5 bg-white/10 rounded-full hover:bg-secondary hover:text-white transition-colors"
-                aria-label="Síguenos en Facebook">
+                aria-label="Facebook">
                 <Facebook size={18} />
               </a>
             </div>
