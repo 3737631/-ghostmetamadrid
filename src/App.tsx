@@ -65,7 +65,7 @@ export default function App() {
               <a href="#precio" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Precio</a>
               <a href="#faq" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">FAQ</a>
               <a href="#pedidos" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Pedidos</a>
-              <a href="https://instagram.com/ghostmediamadrid" target="_blank" rel="noreferrer"
+              <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
                 className="bg-secondary text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-hover transition-colors shadow-sm">
                 Cómo Trabajo
               </a>
@@ -91,7 +91,7 @@ export default function App() {
                 </a>
               ))}
               <div className="pt-3 px-3">
-                <a href="https://instagram.com/ghostmediamadrid" target="_blank" rel="noreferrer"
+                <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
                   className="w-full block py-3 bg-secondary text-white font-serif text-2xl rounded-full hover:bg-hover transition-colors shadow-md mt-4 text-center">
                   Cómo Trabajo
                 </a>
@@ -103,25 +103,6 @@ export default function App() {
 
       {/* Hero scroll animation */}
       <FrameScrollAnimation />
-
-      {/* Contact Banner */}
-      <section className="py-8 bg-black border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.a
-            href={CONTACTO_EMAIL}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-all group"
-          >
-            <span className="text-sm font-sans text-cream/80 group-hover:text-cream transition-colors">
-              Escríbenos a{' '}
-              <span className="font-bold text-gold">ghostmediamadrid@gmail.com</span>
-            </span>
-            <ChevronRight className="w-4 h-4 text-gold group-hover:translate-x-1 transition-transform" />
-          </motion.a>
-        </div>
-      </section>
 
       {/* Hero Content */}
       <section className="py-20 bg-black relative overflow-hidden">
@@ -334,7 +315,7 @@ export default function App() {
               <span className="text-[8px] text-gold/40 tracking-widest uppercase font-sans">Madrid</span>
             </div>
             <div className="flex items-center gap-3">
-              <a href="https://instagram.com/ghostmediamadrid" target="_blank" rel="noreferrer"
+              <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
                 className="p-2.5 bg-white/10 rounded-full hover:bg-secondary hover:text-white transition-colors"
                 aria-label="Instagram">
                 <Instagram size={18} />
