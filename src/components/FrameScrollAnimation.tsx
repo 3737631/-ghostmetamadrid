@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import * as THREE from 'three';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -6,90 +7,90 @@ gsap.registerPlugin(ScrollTrigger);
 
 const BASE = import.meta.env.BASE_URL;
 const TOTAL_FRAMES = 180;
-const SCROLL_DISTANCE = TOTAL_FRAMES * 120;
 
 function pad(n: number): string {
   return n.toString().padStart(3, '0');
 }
 
 export default function FrameScrollAnimation() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-  const frameRef = useRef(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext('2d', { alpha: false, willReadFrequently: false });
-    if (!canvas || !ctx) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 3);
-    let w = 0, h = 0;
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#0F0F0F');
 
-    const resize = () => {
-      w = window.innerWidth;
-      h = window.innerHeight;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = w + 'px';
-      canvas.style.height = h + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
-    };
-    resize();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+    camera.position.z = 1;
 
-    const images: HTMLImageElement[] = [];
+    const renderer = new THREE.WebGLRenderer({ alpha: false, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
+    const container = section;
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    const geometry = new THREE.PlaneGeometry(2, 2);
+    const material = new THREE.MeshBasicMaterial({ color: '#0F0F0F' });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    const textures: THREE.Texture[] = [];
     let loaded = 0;
 
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
-      const img = new Image();
-      img.src = `${BASE}frames/ezgif-frame-${pad(i)}.jpg`;
-      img.onload = () => {
-        loaded++;
-        if (loaded >= TOTAL_FRAMES) setReady(true);
-      };
-      if (i === 0 || i === 1) img.fetchPriority = 'high';
-      images.push(img);
+      const loader = new THREE.TextureLoader();
+      const tex = loader.load(
+        `${BASE}frames/ezgif-frame-${pad(i)}.jpg`,
+        () => {
+          loaded++;
+          if (loaded === TOTAL_FRAMES) {
+            material.map = textures[0];
+            material.color = new THREE.Color('#ffffff');
+            material.needsUpdate = true;
+          }
+        }
+      );
+      textures.push(tex);
     }
-    imagesRef.current = images;
 
-    const draw = (idx: number) => {
-      const img = images[idx];
-      if (!img?.complete || !img.naturalWidth) return;
-      const iw = img.naturalWidth;
-      const ih = img.naturalHeight;
-      const scale = Math.max(w / iw, h / ih);
-      const sw = iw * scale;
-      const sh = ih * scale;
-      ctx.clearRect(0, 0, w, h);
-      ctx.drawImage(img, (w - sw) / 2, (h - sh) / 2, sw, sh);
-    };
+    let currentIdx = 0;
 
-    draw(0);
+    function drawFrame(idx: number) {
+      const clamped = Math.max(0, Math.min(idx, TOTAL_FRAMES - 1));
+      if (clamped === currentIdx || !textures[clamped]) return;
+      currentIdx = clamped;
+      material.map = textures[clamped];
+      material.needsUpdate = true;
+    }
 
-    const onResize = () => {
-      resize();
-      draw(frameRef.current);
-      ScrollTrigger.refresh();
-    };
-    window.addEventListener('resize', onResize);
+    function resize() {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      renderer.setSize(w, h);
+    }
 
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
+    const ro = new ResizeObserver(resize);
+    ro.observe(container);
+
+    function animate() {
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    const st = ScrollTrigger.create({
+      trigger: section,
       pin: true,
       start: 'top top',
-      end: `+=${SCROLL_DISTANCE}`,
+      end: `+=${TOTAL_FRAMES * 120}`,
       scrub: 0.8,
       anticipatePin: 1,
       onUpdate: (self) => {
-        const idx = Math.min(Math.floor(self.progress * (TOTAL_FRAMES - 1)), TOTAL_FRAMES - 1);
-        if (idx !== frameRef.current) {
-          frameRef.current = idx;
-          draw(idx);
-        }
+        const idx = Math.floor(self.progress * (TOTAL_FRAMES - 1));
+        drawFrame(idx);
       },
       onLeave: () => {
         gsap.to(wrapperRef.current, {
@@ -108,8 +109,13 @@ export default function FrameScrollAnimation() {
     });
 
     return () => {
-      window.removeEventListener('resize', onResize);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      st.kill();
+      ro.disconnect();
+      renderer.dispose();
+      geometry.dispose();
+      material.dispose();
+      textures.forEach((t) => t.dispose());
+      section.removeChild(renderer.domElement);
     };
   }, []);
 
@@ -124,16 +130,6 @@ export default function FrameScrollAnimation() {
         className="relative w-full h-screen flex items-center justify-center"
         style={{ willChange: 'opacity' }}
       >
-        {!ready && (
-          <div className="w-6 h-6 border border-[#C8A97E]/30 border-t-transparent rounded-full animate-spin" />
-        )}
-        <canvas
-          ref={canvasRef}
-          className={`absolute inset-0 ${ready ? 'block' : 'hidden'}`}
-          style={{
-            filter: 'contrast(1.15) brightness(1.03) saturate(1.08) drop-shadow(0 0 0.5px rgba(255,255,255,0.05))',
-          }}
-        />
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.035]"
           style={{
