@@ -126,7 +126,7 @@ export default function App() {
       </div>
 
       {/* Hero Content */}
-      <section className="py-20 lg:py-28">
+      <section className="pb-20 pt-0 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-center space-y-5 max-w-4xl mx-auto">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold text-[9px] font-bold tracking-[0.25em] uppercase font-sans">
