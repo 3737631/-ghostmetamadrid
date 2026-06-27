@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Menu, X, ChevronRight, Sparkles, Shield, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search, Instagram, Facebook, ShoppingCart, Plus, Minus } from 'lucide-react';
+import { Menu, X, ChevronRight, Sparkles, Shield, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search, Instagram, ShoppingCart, Plus, Minus } from 'lucide-react';
 import FrameScrollAnimation from './components/FrameScrollAnimation';
 import OrderSection from './components/OrderSection';
 
@@ -65,10 +65,21 @@ export default function App() {
               <a href="#precio" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Precio</a>
               <a href="#faq" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">FAQ</a>
               <a href="#pedidos" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Pedidos</a>
-              <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
-                className="bg-secondary text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-hover transition-colors shadow-sm">
-                Cómo Trabajo
-              </a>
+              <div className="relative group">
+                <button className="bg-secondary text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-hover transition-colors shadow-sm cursor-pointer">
+                  Cómo Trabajo
+                </button>
+                <div className="absolute top-full right-0 mt-2 w-44 bg-black/95 border border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+                  <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-cream/80 hover:text-white hover:bg-white/5 transition-colors">
+                    <Instagram size={16} className="text-gold" /> Instagram Reels
+                  </a>
+                  <a href="https://vm.tiktok.com/ZNRwdPpTt/" target="_blank" rel="noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 text-sm text-cream/80 hover:text-white hover:bg-white/5 transition-colors border-t border-white/5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gold"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg> TikTok
+                  </a>
+                </div>
+              </div>
             </nav>
 
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -91,10 +102,16 @@ export default function App() {
                 </a>
               ))}
               <div className="pt-3 px-3">
-                <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
-                  className="w-full block py-3 bg-secondary text-white font-serif text-2xl rounded-full hover:bg-hover transition-colors shadow-md mt-4 text-center">
-                  Cómo Trabajo
-                </a>
+                <div className="flex flex-col gap-2 mt-4">
+                  <a href="https://www.instagram.com/ghostmetamadrid/reels/" target="_blank" rel="noreferrer"
+                    className="w-full block py-3 bg-secondary text-white font-serif text-xl rounded-full hover:bg-hover transition-colors shadow-md text-center">
+                    Instagram
+                  </a>
+                  <a href="https://vm.tiktok.com/ZNRwdPpTt/" target="_blank" rel="noreferrer"
+                    className="w-full block py-3 bg-secondary text-white font-serif text-xl rounded-full hover:bg-hover transition-colors shadow-md text-center">
+                    TikTok
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -325,11 +342,7 @@ export default function App() {
                 aria-label="TikTok">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer"
-                className="p-2.5 bg-white/10 rounded-full hover:bg-secondary hover:text-white transition-colors"
-                aria-label="Facebook">
-                <Facebook size={18} />
-              </a>
+
             </div>
             <div className="flex gap-6 text-[11px] font-sans text-cream/40">
               <span className="hover:text-gold/60 cursor-pointer transition-colors">Aviso Legal</span>
