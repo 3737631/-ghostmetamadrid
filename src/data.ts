@@ -264,68 +264,34 @@ export const eventPackages: EventPackage[] = [
   {
     id: 'ep1',
     name: 'Menú Tradicional Aljarafe',
-    description: 'Perfecto para bautizos y reuniones familiares íntimas. Gastronomía típica andaluza en un formato muy acogedor.',
     pricePerPerson: 38,
-    starters: [
-      'Surtido de Ibéricos (Jamón, Caña de Lomo y Queso)',
-      'Croquetas Caseras del Capricho',
-      'Salmorejo Sevillano'
-    ],
-    mains: [
-      'Carrillada Ibérica en salsa de vino tinto con panaderas',
-      'Lomo de Bacalao gratinado con alioli'
-    ],
-    desserts: [
-      'Flan casero de huevo con nata',
-      'Café o Infusión'
-    ],
-    drinks: [
-      'Cerveza Cruzcampo, Vino de la Casa, Refrescos y Agua'
-    ],
+    description: 'Perfecto para bautizos y reuniones familiares íntimas.',
+    starters: ['Surtido de Ibéricos', 'Croquetas Caseras', 'Salmorejo Sevillano'],
+    mains: ['Carrillada Ibérica en salsa', 'Lomo de Bacalao gratinado'],
+    desserts: ['Flan casero', 'Café o Infusión'],
+    drinks: ['Cerveza Cruzcampo, Vino de la Casa, Refrescos y Agua'],
     iconName: 'Sparkles'
   },
   {
     id: 'ep2',
     name: 'Menú Celebración Premium',
-    description: 'Nuestra propuesta estrella para Comuniones y grandes acontecimientos. Ofrece variedad, elegancia y un éxito garantizado.',
     pricePerPerson: 52,
-    starters: [
-      'Jamón Ibérico de Bellota y Queso de Oveja Grazalema',
-      'Revueltos camperos de espárragos trigueros y jamón',
-      'Gambas frescas de Huelva cocidas'
-    ],
-    mains: [
-      'Solomillo Ibérico al Whisky con patatas bastón',
-      'Merluza de la Bahía asada al horno con ajitos'
-    ],
-    desserts: [
-      'Tarta de celebración personalizada',
-      'Copa de Cava andaluz',
-      'Café o Infusión'
-    ],
-    drinks: [
-      'Vinos Rioja, Manzanilla, Cerveza Cruzcampo, Refrescos y Licores de la casa'
-    ],
+    description: 'Para Comuniones y grandes acontecimientos.',
+    starters: ['Jamón Ibérico y Queso Grazalema', 'Revuelto de espárragos', 'Gambas de Huelva'],
+    mains: ['Solomillo Ibérico al Whisky', 'Merluza de la Bahía asada'],
+    desserts: ['Tarta personalizada', 'Copa de Cava', 'Café'],
+    drinks: ['Vinos Rioja, Manzanilla, Cerveza, Refrescos, Licores'],
     iconName: 'Award'
   },
   {
     id: 'ep3',
     name: 'Menú Infantil "Caprichito"',
-    description: 'Un menú diseñado especialmente para los más pequeños, con ingredientes sencillos y de alta calidad para su total disfrute.',
     pricePerPerson: 18,
-    starters: [
-      'Surtido de fritos del chef (Croquetas de jamón, fingers de pollo caseros)'
-    ],
-    mains: [
-      'Escalope de pollo crujiente con patatas fritas recién hechas'
-    ],
-    desserts: [
-      'Copa de helado tres gustos o tarta infantil',
-      'Refrescos, zumos y agua ilimitados'
-    ],
-    drinks: [
-      'Refrescos y zumos variados'
-    ],
+    description: 'Para los más pequeños.',
+    starters: ['Surtido de fritos (croquetas, fingers de pollo)'],
+    mains: ['Escalope de pollo crujiente con patatas'],
+    desserts: ['Copa de helado o tarta infantil'],
+    drinks: ['Refrescos y zumos'],
     iconName: 'Heart'
   }
 ];
