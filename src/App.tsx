@@ -44,7 +44,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-cream flex flex-col selection:bg-gold/30 selection:text-brown-dark antialiased">
+    <div className="min-h-screen bg-black text-cream flex flex-col selection:bg-gold/30 selection:text-brown-dark antialiased overflow-x-hidden">
 
       {/* Header */}
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
