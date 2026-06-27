@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/raybanled/',
+    base: '/-ghostmetamadrid/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
