@@ -25,7 +25,7 @@ export default function FrameScrollAnimation() {
     const ctx = canvas?.getContext('2d', { alpha: false, willReadFrequently: false });
     if (!canvas || !ctx) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
     let w = 0, h = 0;
 
     const resize = () => {
@@ -36,6 +36,8 @@ export default function FrameScrollAnimation() {
       canvas.style.width = w + 'px';
       canvas.style.height = h + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
     };
     resize();
 
@@ -49,6 +51,7 @@ export default function FrameScrollAnimation() {
         loaded++;
         if (loaded >= TOTAL_FRAMES) setReady(true);
       };
+      if (i === 0 || i === 1) img.fetchPriority = 'high';
       images.push(img);
     }
     imagesRef.current = images;
@@ -59,8 +62,10 @@ export default function FrameScrollAnimation() {
       const iw = img.naturalWidth;
       const ih = img.naturalHeight;
       const scale = Math.max(w / iw, h / ih);
+      const sw = iw * scale;
+      const sh = ih * scale;
       ctx.clearRect(0, 0, w, h);
-      ctx.drawImage(img, (w - iw * scale) / 2, (h - ih * scale) / 2, iw * scale, ih * scale);
+      ctx.drawImage(img, (w - sw) / 2, (h - sh) / 2, sw, sh);
     };
 
     draw(0);
@@ -126,7 +131,7 @@ export default function FrameScrollAnimation() {
           ref={canvasRef}
           className={`absolute inset-0 ${ready ? 'block' : 'hidden'}`}
           style={{
-            filter: 'contrast(1.12) brightness(1.04) saturate(1.06)',
+            filter: 'contrast(1.15) brightness(1.03) saturate(1.08) drop-shadow(0 0 0.5px rgba(255,255,255,0.05))',
           }}
         />
         <div
