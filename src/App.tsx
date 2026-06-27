@@ -131,11 +131,11 @@ export default function App() {
               RayRestore Studio <span className="text-cream/30 mx-1">·</span> by Ghost Media Madrid
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-cream font-serif leading-[1.05]">
-              Devuelve a tus gafas<br />
-              <span className="text-gold">su diseño original</span>
+              Quítale las LEDs<br />
+              <span className="text-gold">a tus Ray-Ban Meta</span>
             </h1>
             <p className="text-brown text-base sm:text-lg font-sans leading-relaxed max-w-2xl mx-auto">
-              Eliminamos discretamente módulos LED, componentes luminosos y elementos electrónicos visibles
+              Eliminamos discretamente los LEDs de grabación, módulos luminosos y componentes electrónicos visibles
               para conseguir una estética más limpia y elegante.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

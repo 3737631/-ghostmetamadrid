@@ -59,23 +59,19 @@ export default function FrameScrollAnimation() {
       imgs.push(img);
     }
 
-    const isMobile = window.innerWidth < 1024;
     let currentIdx = 0;
 
     function draw(idx: number) {
       const img = imgs[idx];
       if (!img) return;
-      const s = isMobile
-        ? Math.min(cw / img.naturalWidth, ch / img.naturalHeight)
-        : Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
       const sw = img.naturalWidth * s;
       const sh = img.naturalHeight * s;
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, cw, ch);
       ctx.drawImage(img, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
     }
-    const mobileOff = isMobile ? 56 : 0;
-    const scrollDist = isMobile ? TOTAL_FRAMES * 6 : TOTAL_FRAMES * 15;
+    const mobileOff = window.innerWidth < 1024 ? 56 : 0;
     const st = ScrollTrigger.create({
       trigger: wrapper,
       pin: true,
@@ -108,7 +104,7 @@ export default function FrameScrollAnimation() {
 
   return (
     <section ref={sectionRef} className="relative w-full overflow-hidden bg-black">
-      <div ref={wrapperRef} className="relative w-full h-screen max-md:h-[40vh]" style={{ willChange: 'opacity' }}>
+      <div ref={wrapperRef} className="relative w-full h-dvh" style={{ willChange: 'opacity' }}>
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center z-20 bg-black text-white/40 text-sm">
             Cargando...
