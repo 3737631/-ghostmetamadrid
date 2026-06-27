@@ -64,7 +64,8 @@ export default function FrameScrollAnimation() {
     function draw(idx: number) {
       const img = imgs[idx];
       if (!img) return;
-      const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const s = Math.min(scale, 1);
       const sw = img.naturalWidth * s;
       const sh = img.naturalHeight * s;
       ctx.fillStyle = '#000';
