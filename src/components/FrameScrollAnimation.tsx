@@ -17,8 +17,8 @@ export default function FrameScrollAnimation() {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#0F0F0F');
@@ -28,9 +28,11 @@ export default function FrameScrollAnimation() {
 
     const renderer = new THREE.WebGLRenderer({ alpha: false, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
-    const container = section;
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    container.appendChild(renderer.domElement);
+    const w = wrapper.clientWidth;
+    const h = wrapper.clientHeight;
+    renderer.setSize(w, h);
+    renderer.domElement.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+    wrapper.insertBefore(renderer.domElement, wrapper.firstChild);
 
     const geometry = new THREE.PlaneGeometry(2, 2);
     const material = new THREE.MeshBasicMaterial({ color: '#0F0F0F' });
@@ -67,13 +69,13 @@ export default function FrameScrollAnimation() {
     }
 
     function resize() {
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      renderer.setSize(w, h);
+      const cw = wrapper.clientWidth;
+      const ch = wrapper.clientHeight;
+      renderer.setSize(cw, ch);
     }
 
     const ro = new ResizeObserver(resize);
-    ro.observe(container);
+    ro.observe(wrapper);
 
     function animate() {
       renderer.render(scene, camera);
@@ -82,7 +84,7 @@ export default function FrameScrollAnimation() {
     animate();
 
     const st = ScrollTrigger.create({
-      trigger: section,
+      trigger: wrapper,
       pin: true,
       start: 'top top',
       end: `+=${TOTAL_FRAMES * 120}`,
@@ -93,14 +95,14 @@ export default function FrameScrollAnimation() {
         drawFrame(idx);
       },
       onLeave: () => {
-        gsap.to(wrapperRef.current, {
+        gsap.to(wrapper, {
           opacity: 0,
           duration: 0.8,
           ease: 'power2.out',
         });
       },
       onEnterBack: () => {
-        gsap.to(wrapperRef.current, {
+        gsap.to(wrapper, {
           opacity: 1,
           duration: 0.4,
           ease: 'power2.out',
@@ -115,7 +117,6 @@ export default function FrameScrollAnimation() {
       geometry.dispose();
       material.dispose();
       textures.forEach((t) => t.dispose());
-      section.removeChild(renderer.domElement);
     };
   }, []);
 
