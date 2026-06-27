@@ -7,6 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 const BASE = import.meta.env.BASE_URL;
 const TOTAL_FRAMES = 180;
 
+const BG_COLOR = '#0D0D0D';
+
 function pad(n: number): string {
   return n.toString().padStart(3, '0');
 }
@@ -26,61 +28,68 @@ export default function FrameScrollAnimation() {
     const scrollPx = getScrollPx(isMobile);
 
     const ctx = canvas.getContext('2d', { alpha: false })!;
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
-    const dpr = Math.min(window.devicePixelRatio, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    let cw = 0, ch = 0;
+    let cw = 0;
+    let ch = 0;
     let currentIdx = 0;
+
+    function applyContextQuality() {
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+    }
+
+    function draw(idx: number) {
+      const img = imgs[idx];
+      if (!img || !img.complete || !cw || !ch) return;
+      const s = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
+      const sw = img.naturalWidth * s;
+      const sh = img.naturalHeight * s;
+      ctx.fillStyle = BG_COLOR;
+      ctx.fillRect(0, 0, cw, ch);
+      ctx.drawImage(img, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
+    }
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
       cw = rect.width;
       ch = rect.height;
       if (cw === 0 || ch === 0) return;
-      canvas.width = cw * dpr;
-      canvas.height = ch * dpr;
+      canvas.width = Math.round(cw * dpr);
+      canvas.height = Math.round(ch * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      applyContextQuality();
+      draw(currentIdx);
     }
-    resize();
 
     const imgs: HTMLImageElement[] = [];
-    let ready = false;
+    let loadedCount = 0;
 
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
       const img = new Image();
       img.src = `${BASE}frames/ezgif-frame-${pad(i)}.jpg`;
       img.onload = () => {
-        if (!ready && imgs[0]?.complete) draw(0);
-        if (i === TOTAL_FRAMES) {
-          ready = true;
-          if (!imgs[0]?.complete) imgs[0].onload = () => draw(0);
-        }
+        loadedCount++;
+        if (i === 1) draw(0);
       };
       imgs.push(img);
     }
 
-    function draw(idx: number) {
-      const img = imgs[idx];
-      if (!img || !cw || !ch) return;
-      const s = Math.min(cw / img.naturalWidth, ch / img.naturalHeight);
-      const sw = img.naturalWidth * s;
-      const sh = img.naturalHeight * s;
-      ctx.fillStyle = '#000';
-      ctx.fillRect(0, 0, cw, ch);
-      ctx.drawImage(img, (cw - sw) / 2, (ch - sh) / 2, sw, sh);
-    }
+    resize();
 
     const st = ScrollTrigger.create({
       trigger: '.animation-wrapper',
       start: 'top top',
-      end: 'bottom top',
+      end: () => '+=' + scrollPx,
       pin: true,
+      pinSpacing: true,
       scrub: true,
       anticipatePin: 1,
       onUpdate: (self) => {
-        if (!ready) return;
-        const idx = Math.min(Math.floor(self.progress * TOTAL_FRAMES), TOTAL_FRAMES - 1);
+        const idx = Math.min(
+          Math.floor(self.progress * TOTAL_FRAMES),
+          TOTAL_FRAMES - 1,
+        );
         if (idx !== currentIdx) {
           currentIdx = idx;
           draw(idx);
@@ -100,10 +109,5 @@ export default function FrameScrollAnimation() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="w-full h-full block"
-    />
-  );
+  return <canvas ref={canvasRef} className="w-full h-full block" />;
 }

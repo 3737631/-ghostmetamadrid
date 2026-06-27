@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Menu, X, ChevronRight, Sparkles, Shield, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search, Instagram, ShoppingCart, Plus, Minus } from 'lucide-react';
-import FrameScrollAnimation, { getScrollPx } from './components/FrameScrollAnimation';
+import { Menu, X, ChevronRight, Sparkles, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search, Instagram, ShoppingCart, Plus, Minus } from 'lucide-react';
+import FrameScrollAnimation from './components/FrameScrollAnimation';
 import OrderSection from './components/OrderSection';
 
 const CONTACTO_EMAIL = 'mailto:ghostmediamadrid@gmail.com';
@@ -36,7 +36,6 @@ const faqs = [
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile] = useState(window.innerWidth < 1024);
-  const scrollPx = getScrollPx(isMobile);
 
   return (
     <div className="min-h-screen bg-black text-cream flex flex-col selection:bg-gold/30 selection:text-brown-dark antialiased overflow-x-hidden">
@@ -111,9 +110,14 @@ export default function App() {
         )}
       </header>
 
-      {/* Animation wrapper — pinned by GSAP, height = scrollPx provides full scroll distance */}
+      {/*
+        Animation wrapper — pineado por GSAP (ScrollTrigger, en
+        FrameScrollAnimation.tsx). La altura es natural (padding-top
+        + aspect-ratio child). La distancia de scroll la define
+        ScrollTrigger con `end: '+=' + scrollPx` dentro de
+        FrameScrollAnimation.tsx, desacoplada de este CSS.
+      */}
       <div className="animation-wrapper relative w-full bg-black flex flex-col items-center justify-center" style={{
-        height: scrollPx + 'px',
         paddingTop: isMobile ? '56px' : '80px',
       }}>
         <div className="w-full shrink-0" style={{ aspectRatio: '1280/720', maxHeight: '100%' }}>
