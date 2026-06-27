@@ -26,8 +26,8 @@ export default function App() {
               <div className="w-8 h-8 rounded-full border-2 border-gold flex items-center justify-center">
                 <span className="text-gold text-xs font-bold tracking-wider">RB</span>
               </div>
-              <span className="text-lg font-bold tracking-[0.15em] text-cream font-sans uppercase">
-                RAY-BAN <span className="text-gold">LED</span>
+              <span className="text-xl font-cursive tracking-wide text-cream">
+                Ray-Ban <span className="text-gold">LED</span>
               </span>
             </a>
 
@@ -281,8 +281,8 @@ export default function App() {
               <div className="w-7 h-7 rounded-full border border-gold/30 flex items-center justify-center">
                 <span className="text-gold text-[9px] font-bold tracking-wider">RB</span>
               </div>
-              <span className="text-sm font-bold tracking-[0.1em] text-cream/50 font-sans uppercase">
-                RAY-BAN <span className="text-gold/50">LED</span>
+              <span className="text-base font-cursive tracking-wide text-cream/50">
+                Ray-Ban <span className="text-gold/50">LED</span>
               </span>
             </div>
             <div className="flex gap-6 text-[11px] font-sans text-cream/40">
