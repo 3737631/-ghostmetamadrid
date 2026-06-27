@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Menu, X, ChevronRight, Sparkles, Shield, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search, Instagram, ShoppingCart, Plus, Minus } from 'lucide-react';
-import FrameScrollAnimation from './components/FrameScrollAnimation';
+import FrameScrollAnimation, { getScrollPx } from './components/FrameScrollAnimation';
 import OrderSection from './components/OrderSection';
 
 const CONTACTO_EMAIL = 'mailto:ghostmediamadrid@gmail.com';
@@ -35,22 +35,14 @@ const faqs = [
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [isMobile] = useState(window.innerWidth < 1024);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const scrollPx = getScrollPx(isMobile);
 
   return (
     <div className="min-h-screen bg-black text-cream flex flex-col selection:bg-gold/30 selection:text-brown-dark antialiased overflow-x-hidden">
 
       {/* Header */}
-      <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/90 backdrop-blur-md shadow-lg py-3 border-b border-white/10' : 'bg-transparent py-5'
-      }`}>
+      <header className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md shadow-lg py-3 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center gap-3 group">
@@ -119,10 +111,13 @@ export default function App() {
         )}
       </header>
 
-      {/* Animation section — frames play on scroll, full image always visible */}
-      <section className="animation-section w-full bg-black" style={{ aspectRatio: '1280/720' }}>
+      {/* Animation wrapper — pinned by GSAP while scrolling through the spacer */}
+      <div className="animation-wrapper relative w-full bg-black" style={{ aspectRatio: '1280/720' }}>
         <FrameScrollAnimation />
-      </section>
+      </div>
+
+      {/* Spacer — provides the scroll distance for all frames to play */}
+      <div className="scroll-spacer w-full" style={{ height: scrollPx + 'px' }} />
 
       {/* Hero Content */}
       <section className="py-20 lg:py-28">

@@ -11,12 +11,19 @@ function pad(n: number): string {
   return n.toString().padStart(3, '0');
 }
 
+export function getScrollPx(isMobile: boolean): number {
+  return TOTAL_FRAMES * (isMobile ? 6 : 15);
+}
+
 export default function FrameScrollAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    const isMobile = window.innerWidth < 1024;
+    const scrollPx = getScrollPx(isMobile);
 
     const ctx = canvas.getContext('2d', { alpha: false })!;
     ctx.imageSmoothingEnabled = true;
@@ -65,9 +72,10 @@ export default function FrameScrollAnimation() {
     }
 
     const st = ScrollTrigger.create({
-      trigger: '.animation-section',
-      start: 'top top',
-      end: 'bottom top',
+      trigger: '.scroll-spacer',
+      start: `top +=${isMobile ? 56 : 80}`,
+      end: `+=${scrollPx}`,
+      pin: '.animation-wrapper',
       scrub: true,
       anticipatePin: 1,
       onUpdate: (self) => {
