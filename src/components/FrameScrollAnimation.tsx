@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const BASE = import.meta.env.BASE_URL;
 const TOTAL_FRAMES = 151;
-const SCROLL_DISTANCE = TOTAL_FRAMES * 28;
+const SCROLL_DISTANCE = TOTAL_FRAMES * 120;
 
 function pad(n: number): string {
   return n.toString().padStart(3, '0');
@@ -120,24 +120,24 @@ export default function FrameScrollAnimation() {
         style={{ willChange: 'opacity' }}
       >
         {!ready && (
-          <div className="text-[#C8A97E]/40 text-[10px] font-sans tracking-[0.3em] uppercase">
-            Cargando...
-          </div>
+          <div className="w-6 h-6 border border-[#C8A97E]/30 border-t-transparent rounded-full animate-spin" />
         )}
         <canvas
           ref={canvasRef}
           className={`absolute inset-0 ${ready ? 'block' : 'hidden'}`}
           style={{
-            filter: 'contrast(1.08) brightness(1.02)',
+            filter: 'contrast(1.12) brightness(1.04) saturate(1.06)',
           }}
         />
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.035]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
-            backgroundSize: '128px 128px',
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")`,
+            backgroundSize: '96px 96px',
           }}
         />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0F0F0F] to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0F0F0F] to-transparent pointer-events-none z-10" />
       </div>
     </section>
   );
