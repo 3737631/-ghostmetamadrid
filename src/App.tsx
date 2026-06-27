@@ -111,24 +111,23 @@ export default function App() {
       </header>
 
       {/*
-        Animation wrapper — pineado por GSAP (ScrollTrigger, en
-        FrameScrollAnimation.tsx). La altura es natural (padding-top
-        + aspect-ratio child). La distancia de scroll la define
+        Animation wrapper — pineado por GSAP (ScrollTrigger en
+        FrameScrollAnimation.tsx). Contiene el canvas + el hero text
+        para que ambos sean visibles durante el pin, sin espacio
+        negro entre ellos. La distancia de scroll la define
         ScrollTrigger con `end: '+=' + scrollPx` dentro de
-        FrameScrollAnimation.tsx, desacoplada de este CSS.
+        FrameScrollAnimation.tsx.
       */}
-      <div className="animation-wrapper relative w-full bg-black flex flex-col items-center justify-center" style={{
+      <div className="animation-wrapper relative w-full bg-black flex flex-col" style={{
         paddingTop: isMobile ? '56px' : '80px',
       }}>
         <div className="w-full shrink-0" style={{ aspectRatio: '1280/720', maxHeight: '100%' }}>
           <FrameScrollAnimation />
         </div>
-      </div>
 
-      {/* Hero Content */}
-      <section className="pb-20 pt-0 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-center space-y-5 max-w-4xl mx-auto">
+        {/* Hero Content — dentro del wrapper, visible debajo del canvas durante el pin */}
+        <div className="w-full px-4 sm:px-6 lg:px-8 text-center pt-6 pb-8 sm:pb-10">
+          <div className="max-w-4xl mx-auto space-y-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold text-[9px] font-bold tracking-[0.25em] uppercase font-sans">
               RayRestore Studio <span className="text-cream/30 mx-1">·</span> by Ghost Media Madrid
             </span>
@@ -140,7 +139,7 @@ export default function App() {
               Eliminamos discretamente los LEDs de grabación, módulos luminosos y componentes electrónicos visibles
               para conseguir una estética más limpia y elegante.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-1">
               <a href="#presupuesto"
                 className="w-full sm:w-auto bg-secondary text-white font-medium px-8 py-3.5 rounded-full hover:bg-hover transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer">
                 Solicitar presupuesto <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -152,7 +151,7 @@ export default function App() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Servicios */}
       <section id="servicios" className="py-24 bg-black">
