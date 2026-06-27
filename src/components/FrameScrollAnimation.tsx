@@ -14,38 +14,32 @@ function pad(n: number): string {
 export default function FrameScrollAnimation() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const readyRef = useRef(false);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
-    if (!wrapper) return;
+    const frame = frameRef.current;
+    if (!wrapper || !frame) return;
 
-    const imgEls: HTMLImageElement[] = [];
     let loaded = 0;
     let currentIdx = 0;
+    const urls: string[] = [];
 
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
-      const el = document.createElement('img');
-      el.src = `${BASE}frames/ezgif-frame-${pad(i)}.jpg`;
-      el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0';
-      el.onload = () => {
+      const url = `${BASE}frames/ezgif-frame-${pad(i)}.jpg`;
+      urls.push(url);
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
         loaded++;
         if (loaded === TOTAL_FRAMES) {
           readyRef.current = true;
           setLoading(false);
-          imgEls[0].style.opacity = '1';
+          frame.style.backgroundImage = `url("${urls[0]}")`;
         }
       };
-      wrapper.insertBefore(el, wrapper.firstChild);
-      imgEls.push(el);
-    }
-
-    function showFrame(idx: number) {
-      if (currentIdx === idx) return;
-      imgEls[currentIdx].style.opacity = '0';
-      imgEls[idx].style.opacity = '1';
-      currentIdx = idx;
     }
 
     const st = ScrollTrigger.create({
@@ -58,7 +52,10 @@ export default function FrameScrollAnimation() {
       onUpdate: (self) => {
         if (!readyRef.current) return;
         const idx = Math.min(Math.floor(self.progress * TOTAL_FRAMES), TOTAL_FRAMES - 1);
-        showFrame(idx);
+        if (idx !== currentIdx) {
+          currentIdx = idx;
+          frame.style.backgroundImage = `url("${urls[idx]}")`;
+        }
       },
       onLeave: () => {
         gsap.to(wrapper, { opacity: 0, duration: 0.5, ease: 'power2.out' });
@@ -68,18 +65,32 @@ export default function FrameScrollAnimation() {
       },
     });
 
+    window.addEventListener('resize', () => ScrollTrigger.refresh());
+
     return () => {
       st.kill();
-      imgEls.forEach((el) => el.remove());
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden">
+    <section ref={sectionRef} className="relative w-full overflow-hidden select-none">
       <div ref={wrapperRef} className="relative w-full h-screen" style={{ willChange: 'opacity' }}>
+        <div
+          ref={frameRef}
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            WebkitTouchCallout: 'none',
+          }}
+        />
+        <div className="absolute inset-0 pointer-events-none opacity-[0.06]" style={{ background: 'rgba(0,0,0,0.06)' }} />
         {loading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-black">
-            <div className="w-8 h-8 border border-white/20 border-t-transparent rounded-full animate-spin mb-4" />
+          <div className="absolute inset-0 flex items-center justify-center z-20 bg-black text-white/40 text-sm font-mono">
+            Cargando...
           </div>
         )}
       </div>
