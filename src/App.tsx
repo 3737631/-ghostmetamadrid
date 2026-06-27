@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Menu, X, ChevronRight, Sparkles, Shield, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, ChevronRight, Sparkles, Shield, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search, Instagram, Facebook, ShoppingCart, Plus, Minus } from 'lucide-react';
 import FrameScrollAnimation from './components/FrameScrollAnimation';
-import EventCustomizer from './components/EventCustomizer';
+import OrderSection from './components/OrderSection';
 
 const CONTACTO_EMAIL = 'mailto:ghostmediamadrid@gmail.com';
 
@@ -60,12 +60,12 @@ export default function App() {
             </a>
 
             <nav className="hidden lg:flex items-center gap-6">
-              <a href="#servicios" className="font-medium text-sm text-text/80 hover:text-secondary transition-colors">Servicios</a>
-              <a href="#proceso" className="font-medium text-sm text-text/80 hover:text-secondary transition-colors">Proceso</a>
-              <a href="#precio" className="font-medium text-sm text-text/80 hover:text-secondary transition-colors">Precio</a>
-              <a href="#faq" className="font-medium text-sm text-text/80 hover:text-secondary transition-colors">FAQ</a>
-              <a href="#eventos" className="font-medium text-sm text-text/80 hover:text-secondary transition-colors">Eventos</a>
-              <a href={CONTACTO_EMAIL} className="font-medium text-sm text-text/80 hover:text-secondary transition-colors">Contacto</a>
+              <a href="#servicios" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Servicios</a>
+              <a href="#proceso" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Proceso</a>
+              <a href="#precio" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Precio</a>
+              <a href="#faq" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">FAQ</a>
+              <a href="#pedidos" className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Pedidos</a>
+              <a href={CONTACTO_EMAIL} className="font-medium text-sm text-cream/70 hover:text-gold transition-colors">Contacto</a>
               <a href="#presupuesto" className="bg-secondary text-white font-medium text-sm px-5 py-2 rounded-full hover:bg-hover transition-colors shadow-sm">
                 Presupuesto
               </a>
@@ -83,7 +83,7 @@ export default function App() {
             exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }}
             className="lg:hidden bg-black/95 border-t border-white/10 shadow-lg">
             <div className="px-4 pt-3 pb-6 space-y-2">
-              {['Servicios', 'Proceso', 'Precio', 'FAQ', 'Eventos'].map(item => (
+              {['Servicios', 'Proceso', 'Precio', 'FAQ', 'Pedidos'].map(item => (
                 <a key={item} href={`#${item.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')}`}
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-xs font-bold uppercase tracking-wider text-cream/80 hover:text-gold font-sans">
@@ -252,8 +252,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* Event Customizer */}
-      <EventCustomizer />
+      {/* Sistema de Pedidos */}
+      <OrderSection />
 
       {/* Testimonios */}
       <section className="py-20 bg-black relative overflow-hidden border-t border-white/5">

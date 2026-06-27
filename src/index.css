@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-black: #0F0F0F;
+  --color-black: #0D0D0D;
   --color-brown: #6B4423;
   --color-brown-dark: #4A2E1A;
   --color-cream: #F5E8D8;
@@ -40,7 +40,7 @@
 }
 
 body {
-  background-color: #0F0F0F;
+  background-color: #0D0D0D;
   color: #C8A97E;
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
