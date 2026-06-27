@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Menu, X, ChevronRight, Sparkles, Shield, Wrench, Truck, Star, Send, EyeOff, RefreshCw, CheckCircle, Search } from 'lucide-react';
 import FrameScrollAnimation from './components/FrameScrollAnimation';
 
-const TIKTOK_URL = 'https://vm.tiktok.com/ZNRw1kutc/';
+const CONTACTO_EMAIL = 'mailto:ghostmediamadrid@gmail.com';
 
 const services = [
   { icon: EyeOff, title: 'Eliminación de LEDs', desc: 'Retirada profesional de sistemas luminosos manteniendo la integridad estética de la montura.' },
@@ -52,9 +52,6 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-full border border-gold/60 flex items-center justify-center">
-                <span className="text-gold text-[9px] font-bold tracking-wider">GM</span>
-              </div>
               <div className="flex flex-col">
                 <span className="text-sm font-bold tracking-wide text-cream">Ghost Media</span>
                 <span className="text-[9px] text-gold/60 tracking-widest uppercase font-sans">Madrid</span>
@@ -66,8 +63,8 @@ export default function App() {
               <a href="#proceso" className="text-[11px] font-bold uppercase tracking-widest text-cream/70 hover:text-gold transition-colors font-sans">Proceso</a>
               <a href="#precio" className="text-[11px] font-bold uppercase tracking-widest text-cream/70 hover:text-gold transition-colors font-sans">Precio</a>
               <a href="#faq" className="text-[11px] font-bold uppercase tracking-widest text-cream/70 hover:text-gold transition-colors font-sans">FAQ</a>
-              <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-4 py-2 bg-white/5 hover:bg-white/10 text-cream text-[11px] font-bold uppercase tracking-widest transition-all rounded-full border border-white/10">
-                TikTok
+              <a href={CONTACTO_EMAIL} className="flex items-center gap-1.5 px-4 py-2 bg-white/5 hover:bg-white/10 text-cream text-[11px] font-bold uppercase tracking-widest transition-all rounded-full border border-white/10">
+                Contacto
               </a>
               <a href="#presupuesto" className="px-5 py-2.5 bg-gold text-black text-[11px] font-bold uppercase tracking-widest hover:bg-cream transition-all rounded-none shadow-sm">
                 Presupuesto
@@ -94,9 +91,9 @@ export default function App() {
                 </a>
               ))}
               <div className="pt-3 px-3 flex flex-col gap-2">
-                <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}
+                <a href={CONTACTO_EMAIL} onClick={() => setMobileMenuOpen(false)}
                   className="w-full block py-3 border border-white/10 text-cream text-center font-bold text-xs uppercase tracking-widest font-sans rounded-full">
-                  TikTok
+                  Contacto
                 </a>
                 <a href="#presupuesto" onClick={() => setMobileMenuOpen(false)}
                   className="w-full block py-3 bg-gold text-black text-center font-bold text-xs uppercase tracking-widest font-sans rounded-none">
@@ -110,22 +107,19 @@ export default function App() {
 
       <FrameScrollAnimation />
 
-      {/* TikTok Banner - prominent */}
+      {/* Contact Banner */}
       <section className="py-8 bg-black border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.a
-            href={TIKTOK_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CONTACTO_EMAIL}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-all group"
           >
-            <span className="text-lg">🎬</span>
             <span className="text-sm font-sans text-cream/80 group-hover:text-cream transition-colors">
-              Síguenos en TikTok —{' '}
-              <span className="font-bold text-gold">@ghostmediamadrid</span>
+              Escríbenos a{' '}
+              <span className="font-bold text-gold">ghostmediamadrid@gmail.com</span>
             </span>
             <ChevronRight className="w-4 h-4 text-gold group-hover:translate-x-1 transition-transform" />
           </motion.a>
@@ -321,9 +315,9 @@ export default function App() {
             <p className="text-brown text-sm font-sans">
               Contáctanos y recibe un diagnóstico gratuito en 24 horas.
             </p>
-            <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer"
+            <a href={CONTACTO_EMAIL}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-cream text-black text-xs font-bold uppercase tracking-widest transition-all font-sans">
-              Escríbenos por TikTok
+              Escríbenos
             </a>
           </motion.div>
         </div>
@@ -333,14 +327,9 @@ export default function App() {
       <footer className="bg-black text-cream/60 py-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-7 h-7 rounded-full border border-gold/30 flex items-center justify-center">
-                <span className="text-gold text-[9px] font-bold tracking-wider">GM</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-bold tracking-wide text-cream/50">Ghost Media</span>
-                <span className="text-[8px] text-gold/40 tracking-widest uppercase font-sans">Madrid</span>
-              </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold tracking-wide text-cream/50">Ghost Media</span>
+              <span className="text-[8px] text-gold/40 tracking-widest uppercase font-sans">Madrid</span>
             </div>
             <div className="flex gap-6 text-[11px] font-sans text-cream/40">
               <span className="hover:text-gold/60 cursor-pointer transition-colors">Aviso Legal</span>
